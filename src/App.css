@@ -1,0 +1,217 @@
+body,html{
+  margin:0px;
+  padding:0px;
+  height: 100%;
+  width:100%;
+  overflow: hidden;
+  background: #D6D5B7
+}
+#root{
+  height: 100%;
+  overflow: scroll;
+}
+h1{
+  text-align: center;
+  font-size:2em;
+  color:#F4606C
+}
+/* 整体布局 */
+.container{
+  height: 100%;
+  width:100%;
+  display: flex;
+  box-sizing: border-box;
+  flex-flow: column;
+  justify-content: space-between;
+}
+.content{
+  max-height:90%;
+  overflow:scroll;
+}
+/* 头部部分 */
+.header{
+  height:10%;
+  background:#E6CEAC ;
+}
+/* 内容部分 */
+.item-wrap{
+  padding:20px;
+  width: 100%;
+  display: flex;
+  height: 10%;
+  justify-content: space-between;
+  padding:10px;
+  box-sizing: border-box;
+  border-bottom:2px solid #F4606C;
+  border-radius: 20px;
+}
+.item-wrap:first-child{
+  margin-top:5px;
+}
+/* 内容左部分 */
+.item-left{
+  display: flex;
+}
+.item-left img{
+  border-radius:5px;
+  width:64px;
+  height:64px;
+}
+.item-message{
+  padding-left:20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin:5px 0px;
+}
+.item-message li{
+  white-space: nowrap;
+  max-width:200px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+@media screen and (max-width:370px){
+  .item-message li{
+      white-space: nowrap;
+      max-width:150px;
+      overflow:hidden;
+      text-overflow: ellipsis;
+  }
+ }
+.h1{
+  font-weight: bold
+}
+/* 内容右部分*/
+.item-right{
+  font-size: 0.8em;
+}
+
+
+/* 导航栏部分 */
+.tab-bar{
+  height:11%;
+  display:flex;
+  justify-content: space-around;
+  padding:0px 5px;
+  background: #ECAD9E;
+  font-weight: bold;
+  /* border-top-left-radius: 2em;
+  border-top-right-radius:2em; */
+}
+.tool{
+  height: 100%;
+  width:12%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tool img {
+  width:100%;
+}
+
+.tool span{
+  text-align: center;
+  white-space: nowrap;
+  font-size:.8em;
+}
+
+/* 浮窗 */
+.dialog{
+  position:fixed;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  background: rgba(52, 52, 52, 0.5);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dialogBtn{
+  width:50%;
+  margin: 20px;
+  height: 10%;
+}
+/* Animation */
+@-webkit-keyframes bounceInDown {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bounceInDown {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+  animation-name: bounceInDown;
+  animation-duration: 1s;
+}
