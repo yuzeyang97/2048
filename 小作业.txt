@@ -1,0 +1,8 @@
+1.箭头函数里的this
+	箭头函数里没有this 他的this是继承最近一个对象的this 且一旦确定不会被更改
+2.require是什么方法
+	require常用来引入模块 且参数不能为变量 必须为字符串
+3.bind是干什么的
+	改变this的指向
+4.如果没有脚手架如何自己配置
+	通过webpack打包工具 通过配置webpack.config.js来配置处理react的loader
