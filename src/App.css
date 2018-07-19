@@ -32,6 +32,23 @@ h1{
 .header{
   height:10%;
   background:#E6CEAC ;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.addItemBtn{
+  position: absolute;
+  right: 5%;
+  width: 10%;
+
+}
+
+.deleteItemBtn{
+  position: absolute;
+  left: 5%;
+  width: 10%;
+
 }
 /* 内容部分 */
 .item-wrap{
@@ -51,6 +68,7 @@ h1{
 /* 内容左部分 */
 .item-left{
   display: flex;
+  align-items: center
 }
 .item-left img{
   border-radius:5px;
@@ -63,12 +81,16 @@ h1{
   flex-direction: column;
   justify-content: space-between;
   margin:5px 0px;
+  height: 100%;
 }
 .item-message li{
   white-space: nowrap;
   max-width:200px;
   overflow:hidden;
   text-overflow: ellipsis;
+}
+input[type='checkbox']{
+  zoom:200%
 }
 @media screen and (max-width:370px){
   .item-message li{
@@ -84,6 +106,9 @@ h1{
 /* 内容右部分*/
 .item-right{
   font-size: 0.8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 
@@ -132,6 +157,40 @@ h1{
   width:50%;
   margin: 20px;
   height: 10%;
+}
+
+.closeBtn{
+  position: absolute;
+  top:0;
+  right:0;
+}
+
+.form-wrapper{
+  background:white;
+  height:50%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 8px;
+  padding:10px;
+}
+.input-wrapper{
+  height:8%;
+}
+.form-wrapper input{
+    height:100%;
+    border-radius: 3px
+}
+
+.form-wrapper button{
+  width: 30%;
+  height: 10%;
+}
+/* 添加浮窗 */
+.form-wrapper{
+
 }
 /* Animation */
 @-webkit-keyframes bounceInDown {
