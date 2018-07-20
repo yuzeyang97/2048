@@ -89,7 +89,7 @@ class App extends Component {
 // 添加项目
   addItem=(title,description,time)=>{
     const newList=this.state.listItem.slice()
-     newList.push({
+     newList.unshift({
       img: require("./img/1.jpg"),
       title:title,
       description:description,

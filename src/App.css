@@ -27,6 +27,7 @@ h1{
 .content{
   max-height:90%;
   overflow:scroll;
+  flex-grow: 1;
 }
 /* 头部部分 */
 .header{
@@ -187,10 +188,6 @@ input[type='checkbox']{
 .form-wrapper button{
   width: 30%;
   height: 10%;
-}
-/* 添加浮窗 */
-.form-wrapper{
-
 }
 /* Animation */
 @-webkit-keyframes bounceInDown {
