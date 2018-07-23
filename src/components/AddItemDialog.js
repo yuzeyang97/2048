@@ -21,7 +21,7 @@ export default class AddItemDialog extends Component{
 
     postMessage=()=>{
         const titleValue=this.refs.title.value
-        const descriptionValue=this.refs.description.valueb 
+        const descriptionValue=this.refs.description.value
         const timeValue=this.refs.time.value
         if(titleValue&&descriptionValue&&timeValue){
             this.props.addItem(titleValue,descriptionValue,timeValue)      
