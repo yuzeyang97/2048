@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+
 import List from './components/MessageItem.js';
-import Button from './components/TabBtn.js';
+import Tab from './components/TabBtn.js';
 import ChangeItemDialog from './components/ChangeItemDialog.js';
 import AddItemDialog from './components/AddItemDialog.js';
+import HeadTitle from './components/HeadTitle.js'
 import './App.css';
 
-const addItemBtn=require("./img/addItemBtn.png")
-const deleteItemBtn=require("./img/delete.png")
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -28,9 +29,15 @@ class App extends Component {
         {img: require("./img/search.png"),btnName: "发现"},
         {img: require("./img/user.png"),btnName: "我"}
       ],
+      changeItemBtn:[
+        {method:this.topItem,context:'置顶'},
+        {method:this.deleteItem,context:'删除'},
+        {method:this.showMulSelect,context:'多选删除'}
+      ],
+      currentIndex:null,
+      appTitle:'小年糕',
       changeFlag:false,
       addFlag:false,
-      currentIndex:null,
       mulflag:false,
       deleteItemArray:[]
     }
@@ -38,33 +45,46 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="header">
-          {this.state.mulflag?<img src={deleteItemBtn} className="deleteItemBtn" onClick={this.deleteMoreItem}/>:''}
-          <h1 className="bounceInDown">小年糕</h1>
-          <img src={addItemBtn} className="addItemBtn" onClick={this.showAddDialog}/>
-        </div>
-      
+      <div className="container"> 
+            {this.renderHeadTitle()}  
         <div className="content">
-        {
-        this.state.listItem.map((item,idex)=>{
-            return <List data={item} key={idex} itemIndex={idex} mulflag={this.state.mulflag} showDialog={this.showChangeDialog.bind(this,idex)}  pushDeleteItem={this.pushDeleteItem}></List>
-        })
-        }
+            {this.renderListItem()}
         </div>
-
         <div className="tab-bar">
-        {
-        this.state.data.map((item,idex)=>{
-            return <Button data={item} key={idex}></Button>
-        })
-        }
+            {this.renderTabBar()}
         </div>
-        {this.state.changeFlag ? (<ChangeItemDialog  showDialog={this.showChangeDialog} currentIndex={this.state.currentIndex} topItem={this.topItem.bind(this,this.state.currentIndex) } deleteItem={this.deleteItem.bind(this,this.state.currentIndex)} showMulSelect={this.showMulSelect} />)  :''}
-        {this.state.addFlag ? (<AddItemDialog  showDialog={this.showAddDialog} addItem={this.addItem}/>)  :''}
+            {this.renderChangeItemDialog()}
+            {this. renderAddItemDialog()}
       </div>
     );
   }
+// 渲染底部导航栏
+  renderHeadTitle=()=>{ 
+      return <HeadTitle showAddDialog={this.showAddDialog} title={this.state.appTitle} deleteMoreItem={this.deleteMoreItem} mulflag={this.state.mulflag}/>
+    }
+// 渲染底部导航栏
+  renderTabBar=()=>{
+  return this.state.data.map((item,idex)=>{
+      return <Tab data={item} key={idex}></Tab>
+  })
+  }
+// 渲染Listitem模板
+  renderListItem=()=>{
+    const ListItem=this.state.listItem.map((item,idex)=>{
+      return <List data={item} key={idex} itemIndex={idex} mulflag={this.state.mulflag} showDialog={this.showChangeDialog.bind(this,idex)}  pushDeleteItem={this.pushDeleteItem}></List>
+  })
+    return ListItem;
+  }
+// 渲染更改模板
+  renderChangeItemDialog=()=>{
+    if(this.state.changeFlag)
+    return (<ChangeItemDialog  showDialog={this.showChangeDialog}  changeItemBtn={this.state.changeItemBtn} />)
+  }
+// 渲染添加模板
+  renderAddItemDialog=()=>{
+    if(this.state.addFlag)
+    return (<AddItemDialog  showDialog={this.showAddDialog} addItem={this.addItem}/>)
+}
 // 显示更改项目模板
   showChangeDialog=(e)=>{
     this.setState({
@@ -101,8 +121,8 @@ class App extends Component {
     })
   }
 // 置顶项目
-    topItem=(idex)=>{
-      const topView=this.state.listItem.splice(idex,1);
+    topItem=()=>{
+      const topView=this.state.listItem.splice(this.state.currentIndex,1);
       console.log(topView)
       const newList=this.state.listItem.slice();
       console.log(newList)
@@ -113,8 +133,8 @@ class App extends Component {
       this.showChangeDialog();
     }
 // 删除项目
-    deleteItem=(idex)=>{
-      this.state.listItem.splice(idex,1);
+    deleteItem=()=>{
+      this.state.listItem.splice(this.state.currentIndex,1);
       const newList=this.state.listItem.slice();
       this.setState({
         listItem:newList
@@ -129,6 +149,7 @@ class App extends Component {
       })
       const newList=this.state.listItem.filter((n)=>{return n});
       this.setState({
+        deleteItemArray:[],
         listItem:newList,
         mulflag:false
       })

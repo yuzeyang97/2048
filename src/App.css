@@ -112,6 +112,13 @@ input[type='checkbox']{
   justify-content: space-between;
 }
 
+.item-right button{
+  border: 2px solid #F4606C;
+  border-radius: 5px;
+  font-weight: bold;
+  background: #ECAD9E;
+  min-width:60px;
+}
 
 /* 导航栏部分 */
 .tab-bar{
@@ -155,11 +162,21 @@ input[type='checkbox']{
   align-items: center;
 }
 .dialogBtn{
-  width:50%;
+  width: 50%;
   margin: 20px;
   height: 10%;
+  border-radius: 10px;
+  border: 2px solid #ECAD9E;
+  font-size: 1.5em;
+  background: #E6CEAC;
+  color: #F4606C;
+
 }
 
+.input-title{
+  margin-right: 10px;
+  white-space: nowrap;
+}
 .closeBtn{
   position: absolute;
   top:0;
@@ -167,7 +184,9 @@ input[type='checkbox']{
 }
 
 .form-wrapper{
-  background:white;
+  border: 2px solid #ECAD9E;
+  background: #E6CEAC;
+  color: #F4606C;
   height:50%;
   width: 50%;
   display: flex;
@@ -177,17 +196,30 @@ input[type='checkbox']{
   border-radius: 8px;
   padding:10px;
 }
+
 .input-wrapper{
   height:8%;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
 }
+
 .form-wrapper input{
     height:100%;
-    border-radius: 3px
+    border-radius: 3px;
+    width: 80%;
+    border: 2px solid #ECAD9E;
+    border-radius: 5px;
+    text-indent: 0.5em
 }
 
 .form-wrapper button{
   width: 30%;
   height: 10%;
+  background: #E6CEAC;
+  color: #F4606C;
+  border: 2px solid #ECAD9E;
+  border-radius: 5px;
 }
 /* Animation */
 @-webkit-keyframes bounceInDown {
