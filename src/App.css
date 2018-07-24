@@ -1,305 +1,113 @@
-body,html{
-  margin:0px;
-  padding:0px;
+html,body{
   height: 100%;
-  width:100%;
-  overflow: hidden;
-  background: #D6D5B7
+  width: 100%;
+  padding: 0px;
+  margin: 0px;  
+}
+h1{
+  padding:0;
+  margin: 0;
 }
 #root{
   height: 100%;
-  overflow: scroll;
-}
-h1{
-  text-align: center;
-  font-size:2em;
-  color:#F4606C
+  width: 100%;
 }
 /* 整体布局 */
-.container{
-  height: 100%;
-  width:100%;
+.app{
   display: flex;
-  box-sizing: border-box;
-  flex-flow: column;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
-.content{
-  max-height:90%;
-  overflow:scroll;
+/* 头部 */
+.title{
+    display: flex;
+    height: 10%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    color: white;
+}
+/* 内容 */
+.app-content{
   flex-grow: 1;
+  width: 100%;
 }
-/* 头部部分 */
-.header{
-  height:10%;
-  background:#E6CEAC ;
-  display: flex;
-  justify-content: center;
-  align-items: center
-}
-
-.addItemBtn{
-  position: absolute;
-  right: 5%;
-  width: 10%;
-
-}
-
-.deleteItemBtn{
-  position: absolute;
-  left: 5%;
-  width: 10%;
-
-}
-/* 内容部分 */
-.item-wrap{
-  padding:20px;
+.item{
+  margin:2em 0;
   width: 100%;
   display: flex;
-  height: 10%;
-  justify-content: space-between;
-  padding:10px;
-  box-sizing: border-box;
-  border-bottom:2px solid #F4606C;
-  border-radius: 20px;
+  justify-content: space-around
 }
-.item-wrap:first-child{
-  margin-top:5px;
+.item div{
+  border-radius:50%;
+  height:3em;
+  width: 3em
 }
-/* 内容左部分 */
-.item-left{
-  display: flex;
-  align-items: center
+.itemTitle{
+  width: 20%;
 }
-.item-left img{
-  border-radius:5px;
-  width:64px;
-  height:64px;
-}
-.item-message{
-  padding-left:20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin:5px 0px;
-  height: 100%;
-}
-.item-message li{
-  white-space: nowrap;
-  max-width:200px;
-  overflow:hidden;
-  text-overflow: ellipsis;
-}
-input[type='checkbox']{
-  zoom:200%
-}
-@media screen and (max-width:370px){
-  .item-message li{
-      white-space: nowrap;
-      max-width:150px;
-      overflow:hidden;
-      text-overflow: ellipsis;
-  }
- }
-.h1{
-  font-weight: bold
-}
-/* 内容右部分*/
-.item-right{
-  font-size: 0.8em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.item-right button{
-  border: 2px solid #F4606C;
-  border-radius: 5px;
-  font-weight: bold;
-  background: #ECAD9E;
-  min-width:60px;
-}
-
-/* 导航栏部分 */
-.tab-bar{
-  height:11%;
-  display:flex;
-  justify-content: space-around;
-  padding:0px 5px;
-  background: #ECAD9E;
-  font-weight: bold;
-  /* border-top-left-radius: 2em;
-  border-top-right-radius:2em; */
-}
-.tool{
-  height: 100%;
-  width:12%;
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.tool img {
-  width:100%;
-}
-
-.tool span{
-  text-align: center;
-  white-space: nowrap;
-  font-size:.8em;
-}
-
-/* 浮窗 */
-.dialog{
-  position:fixed;
-  display: flex;
-  height: 100%;
+.checkImg{
   width: 100%;
-  z-index: 999;
-  background: rgba(52, 52, 52, 0.5);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
 }
-.dialogBtn{
-  width: 50%;
-  margin: 20px;
+/* 底部导航 */
+.tabBar{
   height: 10%;
-  border-radius: 10px;
-  border: 2px solid #ECAD9E;
-  font-size: 1.5em;
-  background: #E6CEAC;
-  color: #F4606C;
-
-}
-
-.input-title{
-  margin-right: 10px;
-  white-space: nowrap;
-}
-.closeBtn{
-  position: absolute;
-  top:0;
-  right:0;
-}
-
-.form-wrapper{
-  border: 2px solid #ECAD9E;
-  background: #E6CEAC;
-  color: #F4606C;
-  height:50%;
-  width: 50%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
-  align-items: center;
-  border-radius: 8px;
-  padding:10px;
+  background:rgb(184, 178, 178)
 }
-
-.input-wrapper{
-  height:8%;
-  border-radius: 2px;
+.tabBarBtn{
+  font-weight: bold;
   display: flex;
+  height: 100%;
+  flex-direction: column;
   align-items: center;
+  justify-content: center
+}
+.tabBtnImg{
+  width:3em;
+  height:3em;
+}
+.redBtn{
+  background:red;
+  color:red
 }
 
-.form-wrapper input{
-    height:100%;
-    border-radius: 3px;
-    width: 80%;
-    border: 2px solid #ECAD9E;
-    border-radius: 5px;
-    text-indent: 0.5em
+.purpleBtn{
+  background:rgb(233, 2, 233);
+  color:rgb(233, 2, 233)
 }
 
-.form-wrapper button{
-  width: 30%;
-  height: 10%;
-  background: #E6CEAC;
-  color: #F4606C;
-  border: 2px solid #ECAD9E;
-  border-radius: 5px;
-}
-/* Animation */
-@-webkit-keyframes bounceInDown {
-  from,
-  60%,
-  75%,
-  90%,
-  to {
-    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -3000px, 0);
-    transform: translate3d(0, -3000px, 0);
-  }
-
-  60% {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 25px, 0);
-    transform: translate3d(0, 25px, 0);
-  }
-
-  75% {
-    -webkit-transform: translate3d(0, -10px, 0);
-    transform: translate3d(0, -10px, 0);
-  }
-
-  90% {
-    -webkit-transform: translate3d(0, 5px, 0);
-    transform: translate3d(0, 5px, 0);
-  }
-
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
+.blackBtn{
+  background:black;
+  color:black
 }
 
-@keyframes bounceInDown {
-  from,
-  60%,
-  75%,
-  90%,
-  to {
-    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
+.greenBtn{
+  background:green;
+  color:green
+}
+.redBtnFont{
 
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -3000px, 0);
-    transform: translate3d(0, -3000px, 0);
-  }
-
-  60% {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 25px, 0);
-    transform: translate3d(0, 25px, 0);
-  }
-
-  75% {
-    -webkit-transform: translate3d(0, -10px, 0);
-    transform: translate3d(0, -10px, 0);
-  }
-
-  90% {
-    -webkit-transform: translate3d(0, 5px, 0);
-    transform: translate3d(0, 5px, 0);
-  }
-
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
+  color:red
 }
 
-.bounceInDown {
-  -webkit-animation-name: bounceInDown;
-  animation-name: bounceInDown;
-  animation-duration: 1s;
+.purpleBtnFont{
+
+  color:rgb(233, 2, 233)
+}
+
+.blackBtnFont{
+
+  color:black
+}
+
+.greenBtnFont{
+  color:green
 }
