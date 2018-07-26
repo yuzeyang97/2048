@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as action from '../actions'
 export default class ChangeItemBtn extends Component{
         render(){
             const {context}=this.props
@@ -7,11 +6,10 @@ export default class ChangeItemBtn extends Component{
         }
 
          methods=()=>{
-            const {dispatch,method}=this.props;
-            const fun=action[method];
-            dispatch(fun())
-            const closeDialog=action.closeDialog
-            dispatch(closeDialog())
+            const {actions,method}=this.props;
+            const fun=actions[method];
+            fun()
+            actions.closeDialog()
          }
 }
 

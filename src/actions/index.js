@@ -1,7 +1,6 @@
 // 显示更改项目模板
-    export const showChangeDialog = currentIndex => ({
+    export const showChangeDialog = () => ({
         type:'showChangeDialog',
-        currentIndex
 })
 // 显示添加项目模板
     export const showAddDialog = () => ({
@@ -14,6 +13,11 @@
 // 显示多选按钮
     export const showMulSelect = () => ({
     type:'showMulSelect'
+})
+// 更改当前点击索引
+    export const putCurrrentIndex = currentIndex => ({
+    type:'putCurrrentIndex',
+    currentIndex
 })
 // 添加项目
     export const addItem = (title,description,time) => ({

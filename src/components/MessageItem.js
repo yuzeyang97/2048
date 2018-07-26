@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { pushDeleteItem,spliceDeleteItem,showChangeDialog} from '../actions'
 const a=require("../img/1.jpg");
 export default class Tools extends Component{
     render(){
@@ -22,20 +21,21 @@ export default class Tools extends Component{
         )
     }
     changeDeleteItem=(e)=>{
-        const{dispatch,itemIndex}=this.props
+        const{actions,itemIndex}=this.props
         console.log(itemIndex)
         if(e.target.checked)
         {
-            dispatch(pushDeleteItem(itemIndex))
+            actions.pushDeleteItem(itemIndex)
         }
         else{
-            dispatch(spliceDeleteItem(itemIndex))
+            actions.spliceDeleteItem(itemIndex)
         }
     }
 
     showChangeDialog=()=>{
-        const{dispatch,itemIndex}=this.props
-        dispatch(showChangeDialog(itemIndex))
+        const{actions,itemIndex}=this.props
+        actions.putCurrrentIndex(itemIndex)
+        actions.showChangeDialog()
     }
 }
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { showAddDialog,deleteMoreItem } from '../actions'
 const addItemBtn=require("../img/addItemBtn.png")
 const deleteItemBtn=require("../img/delete.png")
 
@@ -15,12 +14,13 @@ export default class HeadTitle extends Component{
         )
     }
     showAddDialog=()=>{
-        const {dispatch} =this.props
-        dispatch(showAddDialog())
+        const {actions} =this.props
+        actions.showAddDialog()
     }
     deleteMoreItem=()=>{
-        const {dispatch} =this.props
-        dispatch(deleteMoreItem())
+        const {actions} =this.props
+        actions.deleteMoreItem()
+        actions.showMulSelect()
     }
 }
 

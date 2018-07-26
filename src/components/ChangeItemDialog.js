@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import ChangeItemBtn from './ChangeItemBtn';
 import CloseDialogBtn from './CloseDialogBtn';
-import {showChangeDialog} from '../actions'
-const colseImg=require("./../img/closeBtn.png");
 export default class Dialog extends Component{
     render(){
-        const {dispatch} =this.props
+        const {actions} =this.props
         return(
             <div className="dialog" >
-               <CloseDialogBtn dispatch={dispatch}/>
+               <CloseDialogBtn actions={actions}/>
                 {this.renderChangeItemBtn()}
             </div>
         )
     }
 
     renderChangeItemBtn=()=>{
-            const {changeItemBtn,dispatch}=this.props
+            const {changeItemBtn,actions}=this.props
             return changeItemBtn.map((item,idex)=>{
-                return <ChangeItemBtn method={item.method} context={item.context} key={idex} dispatch={dispatch}/>
+                return <ChangeItemBtn method={item.method} context={item.context} key={idex} actions={actions}/>
             })
         }
 
