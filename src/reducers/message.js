@@ -1,3 +1,4 @@
+import {Put_CurrrentIndex,Add_Item,Top_Item,Delete_Item,Delete_MoreItem,Push_DeleteItem,Splice_DeleteItem}  from '../const/actionType'
 const initialState = {
     listItem: [
         { img: require("../img/1.jpg"), title: "小年糕前端大拿群", description: "欧文:真理惟一可靠的标准就是永远自相符合", time: "上午11:35" },
@@ -30,10 +31,10 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'putCurrrentIndex': {
+        case Put_CurrrentIndex: {
             return { ...state, currentIndex: action.currentIndex }
         }
-        case 'addItem': {
+        case Add_Item: {
             const newState = { ...state };
             const { title, description, time } = action;
             newState.listItem.unshift({
@@ -47,7 +48,7 @@ const reducer = (state = initialState, action) => {
             newState.listItem = newState.topItemList.concat(newState.listItem);
             return newState
         }
-        case 'topItem': {
+        case Top_Item: {
             const newState = { ...state };
             if (newState.currentIndex < newState.topItemList.length) {
                 var topView = newState.topItemList.splice(newState.currentIndex, 1);
@@ -66,13 +67,13 @@ const reducer = (state = initialState, action) => {
             newState.listItem = newState.topItemList.concat(newState.listItem);
             return newState
         }
-        case 'deleteItem': {
+        case Delete_Item: {
             const newState = { ...state };
             newState.listItem.splice(newState.currentIndex, 1);
             if (newState.currentIndex < newState.topItemList.length) {newState.topItemList.splice(newState.currentIndex, 1);}
             return newState
         }
-        case 'deleteMoreItem': {
+        case Delete_MoreItem: {
             const newState = { ...state };
             newState.deleteItemArray.map((item) => {
                 if (item < newState.topItemList.length) {newState.topItemList.splice(item, 1);}
@@ -85,12 +86,12 @@ const reducer = (state = initialState, action) => {
                 listItem: newList
             }
         }
-        case 'pushDeleteItem': {
+        case Push_DeleteItem: {
             const newState = { ...state };
             newState.deleteItemArray.push(action.eventIdex)
             return newState
         }
-        case 'spliceDeleteItem': {
+        case Splice_DeleteItem: {
             const newState = { ...state };
             let cancelItem = newState.deleteItemArray.indexOf(action.eventIdex)
             newState.deleteItemArray.splice(cancelItem, 1)

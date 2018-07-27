@@ -1,3 +1,4 @@
+import {Show_ChangeDialog,Show_AddDialog,Close_Dialog,Show_MulSelect}  from '../const/actionType'
 const initialState = {
     changeFlag: false,
     addFlag: false,
@@ -6,16 +7,16 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'showChangeDialog': {
+        case Show_ChangeDialog: {
             return { ...state, changeFlag: true }
         }
-        case 'showAddDialog': {
+        case Show_AddDialog: {
             return { ...state, addFlag: true }
         }
-        case 'closeDialog': {
+        case Close_Dialog: {
             return { ...state, addFlag: false, changeFlag: false }
         }
-        case 'showMulSelect': {
+        case Show_MulSelect: {
             return { ...state, mulflag: !state.mulflag }
         }
         default: return state
