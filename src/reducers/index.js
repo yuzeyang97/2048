@@ -9,7 +9,7 @@ const initialState = {
         course:'摄影课 绘画课' ,
         startTime:'2018-03-30'},
         detailed2:{
-          historyPay:987,
+          historyPay:988,
           allStudyDay:876,
           lastTime:'2018-03-30'
         },

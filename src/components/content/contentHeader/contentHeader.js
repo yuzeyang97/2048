@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Avatar } from 'antd';
-import { Input } from 'antd';
+import { Avatar ,Icon} from 'antd';
 import './contentHeader.css'
 import Item from 'antd/lib/list/Item';
 export default class ContentWrap extends Component {
@@ -32,9 +31,9 @@ export default class ContentWrap extends Component {
                     })}
                     </div>
                     <div className="contentHeader-content_message1">
-                        <div><span>{keysMap.telephone}</span>{userInfo.telephone}</div>
-                        <div className="input-wrap"><span>{keysMap.wechat}</span><input/><button>提交</button></div>
-                        <div className="input-wrap"><span id="beizhu">{keysMap.remarks}</span><input/><button>提交</button></div>
+                        <div><span>{keysMap.telephone}</span>{userInfo.telephone}<Icon type="file-text" className="parse-icon" /></div>
+                        <div className="input-wrap"><span>{keysMap.wechat}:</span><input/><button>提交</button></div>
+                        <div className="input-wrap"><span id="beizhu">{keysMap.remarks}:</span><input/><button>提交</button></div>
                     </div>
                 </div>
             </div>
