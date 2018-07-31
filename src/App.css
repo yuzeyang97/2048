@@ -8,11 +8,13 @@
 }
 
 .red-span{
-  color:red
+  color:red;
+  font-weight: bold
 }
 
 
 .orange-span{
-  color:orange
+  color:orange;
+  font-weight: bold
 }
 

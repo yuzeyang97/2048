@@ -5,18 +5,23 @@ import Slider from '../components/Slider/Slider.js'
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb.js'
 import Content from '../components/content/index.js'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux';
-import * as action from '../actions';
+import * as api from '../api'
+
 
 
 class Container extends Component {
   constructor(props) {
     super(props)
-
+  }
+  componentDidMount() {
+    const { dispatch } = this.props;
+    const mid='MID330900002';
+    api.fetchUserInfo( mid,dispatch);
+    api.fetchLessonInfo( mid,dispatch);
   }
   render() {
-    const { userInfo, keysMap } = this.props
-    const { onlineCourse, CourseTitle, historyCourse }=this.props
+    const { userInfo, keysMap } = this.props.userInfo
+    const { onlineCourse, CourseTitle, historyCourse } = this.props.LessonInfo
     return (
       <Layout>
         <Header />
@@ -29,7 +34,7 @@ class Container extends Component {
               keysMap={keysMap}
               onlineCourse={onlineCourse}
               CourseTitle={CourseTitle}
-              historyCourse={historyCourse} 
+              historyCourse={historyCourse}
             />
           </Layout>
         </Layout>
@@ -43,5 +48,7 @@ function mapStateToProps(state) {
   return props;
 }
 
-
-export default connect(mapStateToProps)(Container);
+function mapDispatchToProps(dispatch) {
+  return { dispatch }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Container);

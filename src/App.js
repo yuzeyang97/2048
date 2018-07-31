@@ -18,7 +18,8 @@ export default class App extends Component {
   constructor(props) {
     super(props)
   }
-  render() {
+  
+render() {
     return (
         <Provider store={store}>
           <Container/>

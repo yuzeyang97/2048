@@ -23,7 +23,7 @@ export default class ContentTabWrap extends Component {
                  CourseTitle={CourseTitle}
                  historyCourse={historyCourse}/>
                 </TabPane>
-                <TabPane tab="满意度反馈" key="2">Content of Tab Pane 2</TabPane>
+                <TabPane tab="满意度反馈" key="2">满意度反馈</TabPane>
             </Tabs>
         );
     }
