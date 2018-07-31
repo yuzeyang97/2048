@@ -2,3 +2,11 @@
     font-weight: bold;
     margin: 10px 0px;
 }
+
+.contentForm-wrap .ant-table-tbody{
+    text-align: center;
+}
+
+.contentForm-wrap .ant-table-thead th{
+    text-align: center;
+}
