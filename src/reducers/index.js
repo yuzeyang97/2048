@@ -1,9 +1,13 @@
 import LessonInfo from './LessonInfo.js'
 import userInfo from './userInfo.js'
+import studentList from './studentList.js'
+import classInfo from './classInfo.js'
 import {combineReducers} from 'redux'
 
 export default combineReducers({
   LessonInfo,
-  userInfo
+  userInfo,
+  studentList,
+  classInfo
 })
 

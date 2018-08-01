@@ -1,4 +1,3 @@
-import axios from 'axios';
 import * as ActionTypes from '../const/ActionTypes';
 
 export function fetchUserInfo(mid) {
@@ -20,6 +19,36 @@ export function fetchLessonInfo(mid) {
       endpoint: '/getLessonInfo',
       params: {
         mid
+      }
+    }
+  }
+}
+
+export function fetchStudentList() {
+  return {
+    SERVER_API: {
+      type: ActionTypes.FETCH_STUDENT_LIST,
+      endpoint: '/getStudentList',
+      params: {
+      }
+    }
+  }
+}
+
+export function searchStudent(mid) {
+  return {
+      type: ActionTypes.SEARCH_STUDENT,
+      data:mid
+    }
+}
+
+export function getClassInfo() {
+  return {
+    SERVER_API: {
+      type: ActionTypes.FETCH_CLASS_INFO,
+      endpoint: '/getClassInfo',
+      params: {
+        id:1
       }
     }
   }
