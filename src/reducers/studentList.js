@@ -2,34 +2,7 @@ import * as ActionTypes from '../const/ActionTypes';
 
 const initialState = {
     studentList: [],
-    CourseTitle: [{
-        title: '学员名',
-        dataIndex: 'nick',
-        key: 'nick',
-    }, {
-        title: '学员编号/MID',
-        dataIndex: 'mid',
-        key: 'mid',
-        filteredValue: [] || null,
-        onFilter: (value, record) =>{console.log(record);return record.mid==value},
-    }, {
-        title: '入学时间',
-        dataIndex: 'enter_time',
-        key: 'enter_time',
-    }, {
-        title: '开课时间',
-        dataIndex: 'start_time',
-        key: 'start_time',
-    }, {
-        title: '在学课程',
-        dataIndex: 'learning_lessons',
-        key: 'learning_lessons',
-    },
-    {
-        title: '负责老师',
-        dataIndex: 'teachers',
-        key: 'teachers',
-    }]
+    filteredValue: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -54,7 +27,7 @@ const reducer = (state = initialState, action) => {
         }
         case `${ActionTypes.SEARCH_STUDENT}`: {
             const newState={...state}
-            action.data?newState.CourseTitle[1].filteredValue=[action.data]:newState.CourseTitle[1].filteredValue=[]
+            action.data?newState.filteredValue=[action.data]:newState.filteredValue=[]
             return newState
         }
         default:

@@ -11,7 +11,7 @@ export default class Search extends Component {
     render() {
       return (
         <div className="search-wrap">
-                <Input onChange={this.changeValue}/><Button type="primary" onClick={this.console}>搜索</Button>
+                <Input onChange={this.changeValue} placeholder='请输入MID'/><Button type="primary" onClick={this.console}>搜索</Button>
         </div>
       );
     }

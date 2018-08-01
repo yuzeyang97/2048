@@ -22,13 +22,12 @@ const { Content } = Layout;
     }
     render() {
       const {userInfo, keysMap} =this.props.userInfo
-      const { onlineCourse, CourseTitle, historyCourse }=this.props.LessonInfo
+      const { onlineCourse,  historyCourse }=this.props.LessonInfo
       return (
         <Content>
             <ContentHeader  userInfo={userInfo}  keysMap={ keysMap} />
             <ContentTabWrap
              onlineCourse={onlineCourse}
-             CourseTitle={CourseTitle}
              historyCourse={historyCourse} />
         </Content>
       );

@@ -14,13 +14,12 @@ export default class ContentTabWrap extends Component {
 
     }
     render() {
-        const { onlineCourse, CourseTitle, historyCourse }=this.props
+        const { onlineCourse, historyCourse }=this.props
         return (
             <Tabs defaultActiveKey="1" onChange={callback}>
                 <TabPane tab="课程信息" key="1">
                 <ContentTab 
                  onlineCourse={onlineCourse}
-                 CourseTitle={CourseTitle}
                  historyCourse={historyCourse}/>
                 </TabPane>
                 <TabPane tab="满意度反馈" key="2">满意度反馈</TabPane>
