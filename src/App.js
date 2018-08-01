@@ -5,13 +5,15 @@ import { createStore,applyMiddleware,compose } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer  from './reducers'
 import { createLogger } from 'redux-logger';
+import serverApi from './middleware/serverApi.js';
+
 
 const logger = createLogger();
 
 const store=createStore(
     rootReducer,
     compose(
-        applyMiddleware(logger),
+        applyMiddleware(serverApi,logger),
       ));
 
 export default class App extends Component {

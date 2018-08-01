@@ -5,7 +5,8 @@ import Slider from '../components/Slider/Slider.js'
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb.js'
 import Content from '../components/content/index.js'
 import { connect } from 'react-redux'
-import * as api from '../api'
+import { bindActionCreators } from 'redux';
+import * as actionCreators from '../actions';
 
 
 
@@ -14,10 +15,11 @@ class Container extends Component {
     super(props)
   }
   componentDidMount() {
-    const { dispatch } = this.props;
+    const {Actions} = this.props;
     const mid='MID330900002';
-    api.fetchUserInfo( mid,dispatch);
-    api.fetchLessonInfo( mid,dispatch);
+    console.log(Actions)
+    Actions.fetchUserInfo(mid);
+    Actions.fetchLessonInfo(mid);
   }
   render() {
     const { userInfo, keysMap } = this.props.userInfo
@@ -48,7 +50,11 @@ function mapStateToProps(state) {
   return props;
 }
 
-function mapDispatchToProps(dispatch) {
-  return { dispatch }
+const mapDispatchToProps = dispatch => {
+  return {
+    Actions: bindActionCreators(actionCreators, dispatch)
+  }
 }
+
+
 export default connect(mapStateToProps, mapDispatchToProps)(Container);
