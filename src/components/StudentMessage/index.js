@@ -1,5 +1,6 @@
+// 学员档案页
 import React, { Component } from 'react';
-import { Table,Layout,Input,Button} from 'antd';
+import { Table, Layout} from 'antd';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../../actions';
@@ -8,7 +9,7 @@ import './index.css'
 
 const { Content } = Layout;
 
-const CourseTitle= [{
+const CourseTitle = [{
   title: '学员名',
   dataIndex: 'nick',
   key: 'nick',
@@ -16,7 +17,7 @@ const CourseTitle= [{
   title: '学员编号/MID',
   dataIndex: 'mid',
   key: 'mid',
-  onFilter: (value, record) =>{console.log(record);return record.mid==value},
+  onFilter: (value, record) => { console.log(record); return record.mid == value },
 }, {
   title: '入学时间',
   dataIndex: 'enter_time',
@@ -36,38 +37,48 @@ const CourseTitle= [{
   key: 'teachers',
 }]
 
- class StudentMessage extends Component {
-    constructor(props) {
-      super(props)
-  
-    }
-    componentDidMount() {
-      const {Actions} = this.props;
-      Actions.fetchStudentList();
-    }
-    render() {
-      const { studentList,filteredValue}=this.props.studentList
-      const {Actions}=this.props
-      CourseTitle[1].filteredValue=filteredValue
-      return (
-        <Content>
-             <Search search={Actions.searchStudent} />
-             <Table dataSource={studentList} columns={CourseTitle} pagination={false} bordered  />
-        </Content>
-      );
-    }
-  }
+class StudentMessage extends Component {
+  constructor(props) {
+    super(props)
 
-  function mapStateToProps(state) {
-    const props = { ...state };
-    return props;
   }
-  
-  const mapDispatchToProps = dispatch => {
-    return {
-      Actions: bindActionCreators(actionCreators, dispatch)
-    }
+  componentDidMount() {
+    const { Actions } = this.props;
+    Actions.fetchStudentList();
   }
-  
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(StudentMessage);
+  render() {
+    const { studentList, filteredValue } = this.props.studentList
+    const { Actions } = this.props
+    CourseTitle[1].filteredValue = filteredValue
+    return (
+      <Content>
+        <Search search={Actions.searchStudent} />
+        <Table
+          dataSource={studentList}
+          columns={CourseTitle}
+          pagination={false}
+          bordered
+          onRow={(record) => {
+            return {
+              onClick: () => {window.location.href='/person/'+record.mid},       // 点击行
+            };
+          }}
+        />
+      </Content>
+    );
+  }
+}
+
+function mapStateToProps(state) {
+  const props = { ...state };
+  return props;
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    Actions: bindActionCreators(actionCreators, dispatch)
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(StudentMessage);

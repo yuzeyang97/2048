@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import { Breadcrumb } from 'antd';
+import {Breadcrumb,Button } from 'antd';
+import { Link} from 'react-router'
 import './Breadcrumb.css'
-import {Link} from 'react-router-dom'
-
 export default class Header extends Component {
     render() {
+        const {router}=this.props
+        const {goBack} = router
         return (
+            <div className='breadcrumb-wrap'>
             <Breadcrumb separator=">">
                 <Breadcrumb.Item>摄影训练营</Breadcrumb.Item>
-                <Breadcrumb.Item href="/">学员档案</Breadcrumb.Item>
-                <Breadcrumb.Item href="/users"> 个人档案</Breadcrumb.Item>
-                <Breadcrumb.Item href="/class">上课详情</Breadcrumb.Item>
+                <Breadcrumb.Item><Link to={'/'}>学员档案</Link></Breadcrumb.Item>
+                <Breadcrumb.Item><Link to={'/person/1'}>个人档案</Link></Breadcrumb.Item>
+                <Breadcrumb.Item><Link to={'/class/1'}>上课详情</Link></Breadcrumb.Item>
             </Breadcrumb>
+            <Button className='back-btn' onClick={goBack}>返回</Button>
+            </div>
         )
     }
 }

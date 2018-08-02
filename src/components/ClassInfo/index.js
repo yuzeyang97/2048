@@ -1,3 +1,4 @@
+// 上课详情页
 import React, { Component } from 'react';
 import { Table, Layout, Icon } from 'antd';
 import { connect } from 'react-redux'

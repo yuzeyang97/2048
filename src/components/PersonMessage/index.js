@@ -1,3 +1,4 @@
+// 个人档案页
 import React, { Component } from 'react';
 import { Layout} from 'antd';
 import ContentHeader from './contentHeader/contentHeader.js';
@@ -19,16 +20,24 @@ const { Content } = Layout;
       console.log(Actions)
       Actions.fetchUserInfo(mid);
       Actions.fetchLessonInfo(mid);
+      Actions.getSatisfiledList(mid);
     }
     render() {
+      const {Actions} = this.props;
       const {userInfo, keysMap} =this.props.userInfo
       const { onlineCourse,  historyCourse }=this.props.LessonInfo
+      const { satisFiledList }=this.props.satisFiledList
+      const { popover }=this.props
       return (
         <Content>
             <ContentHeader  userInfo={userInfo}  keysMap={ keysMap} />
             <ContentTabWrap
+             popover={popover}
+             Actions={Actions}
              onlineCourse={onlineCourse}
-             historyCourse={historyCourse} />
+             historyCourse={historyCourse}
+             satisFiledList={satisFiledList}
+             />
         </Content>
       );
     }

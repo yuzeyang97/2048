@@ -3,34 +3,31 @@ import { Layout } from 'antd';
 import Header from '../components/Header/Header.js'
 import Slider from '../components/Slider/Slider.js'
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb.js'
-import PersonMessage from '../components/PersonMessage/index.js'
-import StudentMessage from '../components/StudentMessage/index.js'
-import ClassInfo from '../components/ClassInfo/index.js'
-import { BrowserRouter, Route } from 'react-router-dom'
+import * as actionCreators from '../actions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-
-
-
-export default class Container extends Component {
+class Container extends Component {
   constructor(props) {
     super(props)
   }
- 
+  closePopover=()=>{
+    const{Actions,popover}=this.props
+    if(popover.flag)
+    Actions.hidePopover()
+    else
+    return
+ }
   render() {
+   const {router}=this.props
     return (
-      <Layout>
+      <Layout onClick={this.closePopover}>
         <Header />
         <Layout>
           <Slider />
           <Layout>
-          <BrowserRouter>
-            <div>
-              <Breadcrumb />
-              <Route path="/users"  component={PersonMessage} />
-              <Route path="/class" component={ClassInfo}/>
-              <Route path="/" component={StudentMessage}/>
-            </div>
-          </BrowserRouter>
+          <Breadcrumb router={router}/>
+            {this.props.children}
           </Layout>
         </Layout>
       </Layout>
@@ -39,3 +36,16 @@ export default class Container extends Component {
 }
 
 
+function mapStateToProps(state) {
+  const props = { ...state };
+  return props;
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    Actions: bindActionCreators(actionCreators, dispatch)
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Container);

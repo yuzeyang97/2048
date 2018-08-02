@@ -21,7 +21,8 @@ const reducer = (state = initialState, action) => {
                     homeworklv: item.homeworkSubmitRate,
                     review: item.beCommenttedRate,
                     cardlv: item.signRate,
-                    degreelv: item.satisfyRate
+                    degreelv: item.satisfyRate,
+                    teacher_info:item.teacherInfo
                 }
             })
             const newHistoryCourse = action.data.historyLessonsList.map((item, index) => {
@@ -35,7 +36,8 @@ const reducer = (state = initialState, action) => {
                     homeworklv: item.homeworkSubmitRate,
                     review: item.beCommenttedRate,
                     cardlv: item.signRate,
-                    degreelv: item.satisfyRate
+                    degreelv: item.satisfyRate,
+                    teacher_info:item.teacherInfo
                 }
             })
             const newState = { ...state, onlineCourse: newOnlineCourse, historyCourse: newHistoryCourse, loadFlag: false }

@@ -1,7 +1,7 @@
 import { Tabs } from 'antd';
 import React, { Component } from 'react';
-import ContentTab from './contentTab.js';
-
+import ContentTabCourse from './contentTabCourse.js';
+import ContenTabSatisfiled from './contenTabSatisfiled.js';
 const TabPane = Tabs.TabPane;
 
 function callback(key) {
@@ -14,15 +14,23 @@ export default class ContentTabWrap extends Component {
 
     }
     render() {
-        const { onlineCourse, historyCourse }=this.props
+        const { onlineCourse, historyCourse,satisFiledList ,Actions,popover}=this.props
         return (
             <Tabs defaultActiveKey="1" onChange={callback}>
                 <TabPane tab="课程信息" key="1">
-                <ContentTab 
+                <ContentTabCourse 
                  onlineCourse={onlineCourse}
-                 historyCourse={historyCourse}/>
+                 historyCourse={historyCourse}
+                 popover={popover}
+                 Actions={Actions}
+                 />
                 </TabPane>
-                <TabPane tab="满意度反馈" key="2">满意度反馈</TabPane>
+                <TabPane tab="满意度反馈" key="2">
+                <ContenTabSatisfiled 
+                 popover={popover}
+                  Actions={Actions}
+                 satisFiledList={satisFiledList}/>
+                 </TabPane>
             </Tabs>
         );
     }

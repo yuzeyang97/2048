@@ -25,3 +25,8 @@
 .green-icon{
   color: green
 }
+
+.waitReply{
+  cursor: pointer;
+  font-weight: bold;
+}

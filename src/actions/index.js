@@ -1,5 +1,5 @@
 import * as ActionTypes from '../const/ActionTypes';
-
+// 获取用户信息
 export function fetchUserInfo(mid) {
   return {
     SERVER_API: {
@@ -11,7 +11,7 @@ export function fetchUserInfo(mid) {
     }
   }
 }
-
+// 获取课程信息
 export function fetchLessonInfo(mid) {
   return {
     SERVER_API: {
@@ -23,7 +23,7 @@ export function fetchLessonInfo(mid) {
     }
   }
 }
-
+// 获取学生列表
 export function fetchStudentList() {
   return {
     SERVER_API: {
@@ -34,14 +34,14 @@ export function fetchStudentList() {
     }
   }
 }
-
+// 搜索学生
 export function searchStudent(mid) {
   return {
       type: ActionTypes.SEARCH_STUDENT,
       data:mid
     }
 }
-
+// 获取上课详情
 export function getClassInfo() {
   return {
     SERVER_API: {
@@ -51,5 +51,38 @@ export function getClassInfo() {
         id:1
       }
     }
+  }
+}
+// 获取满意度反馈信息
+export function getSatisfiledList(mid) {
+  return {
+    SERVER_API: {
+      type: ActionTypes.FETCH_SATISFILED_LIST,
+      endpoint: '/getSatisfiledList',
+      params: {
+        mid
+      }
+    }
+  }
+}
+//  改变回复状态
+export function changeSatisfiled(index) {
+  return {
+      type: ActionTypes.CHANGE_SATISFILED,
+      data:index
+  }
+}
+// 显示信息气泡
+export function showPopover(data) {
+  return {
+      type: ActionTypes.SHOW_POPOVER,
+      data
+  }
+}
+// 隐藏信息气泡
+export function hidePopover(data) {
+  return {
+      type: ActionTypes.HIDE_POPOVER,
+      data
   }
 }

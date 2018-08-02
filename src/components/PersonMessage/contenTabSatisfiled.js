@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ContentForm from './contentForm/contentForm.js';
+import ContentFormSatisfiled from './contentFormSatisfiled/contentFormSatisfiled.js';
 import ContentTabbar from './contentTabBtn/contentTabBtn';
-
+import Popover from '../Popover/Popover.js'
 
 function callback(key) {
     console.log(key);
@@ -13,14 +13,12 @@ export default class ContentTab extends Component {
 
     }
     render() {
-        const { onlineCourse, CourseTitle, historyCourse }=this.props
+        const { satisFiledList , Actions,popover}=this.props
         return (
             <div>   
                 <ContentTabbar />
-                <ContentForm 
-                onlineCourse={onlineCourse}
-                CourseTitle={CourseTitle}
-                historyCourse={historyCourse}/>
+                <Popover popover={popover}/>
+                <ContentFormSatisfiled satisFiledList={satisFiledList}   Actions={Actions}/>
             </div>
         );
     }

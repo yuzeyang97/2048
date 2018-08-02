@@ -28,10 +28,7 @@ const CourseTitle= [{
 }, {
     title: '老师',
     dataIndex: 'teacher',
-    key: 'teacher',
-    render: (text) => {
-        return (<span><Icon type="qq" />{text}</span>)
-    }
+    key: 'teacher'
 }, {
     title: '上课率',
     dataIndex: 'courselv',
@@ -82,8 +79,15 @@ export default class ContentForm extends Component {
         super(props)
         
     }
+    showTeacherMsg=(record)=>{
+        const {Actions}=this.props
+        Actions.showPopover(record)
+    }
     render() {
         const { onlineCourse, historyCourse }=this.props;
+        CourseTitle[3].render=(text,record,index) => {
+            return (<span onClick={this.showTeacherMsg.bind(this,record)} className='waitReply'><Icon type="qq"/>{text}</span>)
+        }
         return (  
             <div className="contentForm-wrap">
                 <div className="contentForm-title">在学课程</div>
