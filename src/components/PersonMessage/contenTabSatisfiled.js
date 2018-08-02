@@ -13,10 +13,10 @@ export default class ContentTab extends Component {
 
     }
     render() {
-        const { satisFiledList , Actions,popover}=this.props
+        const { satisFiledList , Actions,popover,router}=this.props
         return (
             <div>   
-                <ContentTabbar />
+                <ContentTabbar router={router}/>
                 <Popover popover={popover}/>
                 <ContentFormSatisfiled satisFiledList={satisFiledList}   Actions={Actions}/>
             </div>

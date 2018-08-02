@@ -6,6 +6,10 @@ export default class ContentTabBtn extends Component {
       super(props)
   
     }
+    goBack=()=>{
+      const {router}=this.props
+      router.goBack()
+    }
     render() {
       return (
         <div className="contentTabBtn-wrap">
@@ -15,7 +19,7 @@ export default class ContentTabBtn extends Component {
               <Button>绘画课</Button>
           </div>
           <div>
-              <Button>返回</Button>
+              <Button onClick={this.goBack}>返回</Button>
           </div>
         </div>
       );

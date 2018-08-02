@@ -12,12 +12,10 @@ const { Content } = Layout;
  class ContentWrap extends Component {
     constructor(props) {
       super(props)
-  
     }
     componentDidMount() {
       const {Actions} = this.props;
       const mid='MID330900002';
-      console.log(Actions)
       Actions.fetchUserInfo(mid);
       Actions.fetchLessonInfo(mid);
       Actions.getSatisfiledList(mid);
@@ -28,6 +26,7 @@ const { Content } = Layout;
       const { onlineCourse,  historyCourse }=this.props.LessonInfo
       const { satisFiledList }=this.props.satisFiledList
       const { popover }=this.props
+      const {router}=this.props
       return (
         <Content>
             <ContentHeader  userInfo={userInfo}  keysMap={ keysMap} />
@@ -37,6 +36,7 @@ const { Content } = Layout;
              onlineCourse={onlineCourse}
              historyCourse={historyCourse}
              satisFiledList={satisFiledList}
+             router={router}
              />
         </Content>
       );

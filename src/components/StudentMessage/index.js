@@ -60,7 +60,7 @@ class StudentMessage extends Component {
           bordered
           onRow={(record) => {
             return {
-              onClick: () => {window.location.href='/person/'+record.mid},       // 点击行
+              onClick: () => {window.location.href=`/person/${record.mid}`} // 点击行
             };
           }}
         />

@@ -9,10 +9,11 @@ export default class ContentTab extends Component {
 
     }
     render() {
-        const { onlineCourse, CourseTitle, historyCourse,Actions,popover }=this.props
+        const { onlineCourse, CourseTitle, historyCourse,Actions,popover,router }=this.props
+        console.log(router)
         return (
             <div>   
-                <ContentTabbar />
+                <ContentTabbar router={router}/>
                 <Popover popover={popover}/>
                 <ContentFormCourse
                  Actions={Actions}
