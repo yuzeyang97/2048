@@ -11,8 +11,8 @@ export default class Header extends Component {
             <Breadcrumb separator=">">
                 <Breadcrumb.Item>摄影训练营</Breadcrumb.Item>
                 <Breadcrumb.Item><Link to={'/'}>学员档案</Link></Breadcrumb.Item>
-                <Breadcrumb.Item><Link to={'/person/1'}>个人档案</Link></Breadcrumb.Item>
-                <Breadcrumb.Item><Link to={'/class/1'}>上课详情</Link></Breadcrumb.Item>
+                <Breadcrumb.Item><Link to={'/person/default'}>个人档案</Link></Breadcrumb.Item>
+                <Breadcrumb.Item><Link to={'/class/default'}>上课详情</Link></Breadcrumb.Item>
             </Breadcrumb>
             <Button className='back-btn' onClick={goBack}>返回</Button>
             </div>

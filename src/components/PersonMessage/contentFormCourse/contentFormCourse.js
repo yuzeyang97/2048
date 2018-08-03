@@ -79,21 +79,39 @@ export default class ContentForm extends Component {
         super(props)
         
     }
-    showTeacherMsg=(record)=>{
-        const {Actions}=this.props
-        Actions.showPopover(record)
-    }
     render() {
-        const { onlineCourse, historyCourse }=this.props;
+        const { onlineCourse, historyCourse,Actions }=this.props;
         CourseTitle[3].render=(text,record,index) => {
-            return (<span onClick={this.showTeacherMsg.bind(this,record)} className='waitReply'><Icon type="qq"/>{text}</span>)
+            const showTeacherMsg=(e)=>{
+                e.stopPropagation();
+                Actions.showPopover(record)
+            }
+            return (<span onClick={showTeacherMsg} className='waitReply'><Icon type="qq"/>{text}</span>)
         }
         return (  
             <div className="contentForm-wrap">
                 <div className="contentForm-title">在学课程</div>
-                <Table dataSource={onlineCourse} columns={CourseTitle} pagination={false} bordered  />
+                <Table
+                dataSource={onlineCourse} 
+                columns={CourseTitle} 
+                pagination={false} 
+                bordered 
+                onRow={(record) => {
+                    return {
+                      onClick: () => {console.log(record);window.location.href=`/class/${record.teacher_info.id}`} // 点击行
+                    };
+                  }} />
                 <div className="contentForm-title">历史课程</div>
-                <Table dataSource={historyCourse} columns={CourseTitle} pagination={false}  bordered />
+                <Table
+                dataSource={historyCourse}
+                columns={CourseTitle}
+                pagination={false}
+                bordered
+                onRow={(record) => {
+                    return {
+                      onClick: () => {console.log(record);window.location.href=`/class/${record.teacher_info.id}`} // 点击行
+                    };
+                  }} />
             </div>
         );
     }
