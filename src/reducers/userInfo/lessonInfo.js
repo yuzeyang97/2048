@@ -5,9 +5,9 @@ import * as schemes from '../../schema';
 const initialState = {
     onlineCourseResult: [],
     historyCourseResult: [],
-    lessonsList:{},
-    classes:{},
-    teachers:{}
+    lessonsList: {},
+    classes: {},
+    teachers: {}
 }
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -16,16 +16,17 @@ const reducer = (state = initialState, action) => {
             return newState
         }
         case `${ActionTypes.FETCH_LESSON_INFO}_SUC`: {
-           const onlineCourse = normalize(action.data.currentLessonsList, schemes.CURRENTLESSONSLIST)
-           const historyCourse=normalize(action.data.historyLessonsList, schemes.HISTORYLESSONSLIST)
-           const newState={...state,
-                            onlineCourseResult:onlineCourse.result,
-                            historyCourseResult:historyCourse.result,
-                            lessonsList:Object.assign({},onlineCourse.entities.currentLessonsList,historyCourse.entities.historyLessonsList),
-                            classes:Object.assign({},onlineCourse.entities.classes,historyCourse.entities.classes),
-                            teachers:Object.assign({},onlineCourse.entities.teachers,historyCourse.entities.teachers)}
+            const {onlineCourse,historyCourse}=action.data
+            const newState = {
+                ...state,
+                onlineCourseResult: onlineCourse.result,
+                historyCourseResult: historyCourse.result,
+                lessonsList: Object.assign({}, onlineCourse.entities.currentLessonsList, historyCourse.entities.historyLessonsList),
+                classes: Object.assign({}, onlineCourse.entities.classes, historyCourse.entities.classes),
+                teachers: Object.assign({}, onlineCourse.entities.teachers, historyCourse.entities.teachers)
+            }
             console.log(newState)
-           return newState
+            return newState
         }
         case `${ActionTypes.FETCH_LESSON_INFO}_FAI`: {
             return state

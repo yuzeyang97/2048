@@ -1,10 +1,4 @@
-import React from 'react'
-import { Icon } from 'antd';
 import * as ActionTypes from '../const/ActionTypes';
-import { normalize } from 'normalizr';
-import * as schemes from '../schema';
-
-
 const initialState = {
     basicInfo:{},
     keysMap: {
@@ -23,7 +17,8 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case `${ActionTypes.FETCH_CLASS_INFO}_SUC`: {
-            const classList = normalize(action.data.list, schemes.CLASSLIST)
+            console.log(action.data)
+            const classList = action.data.list
             const classListentities=classList.entities.classList
             const result=classList.result
             console.log(classList,222222222222)

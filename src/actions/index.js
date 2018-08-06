@@ -14,7 +14,6 @@ export function fetchUserInfo(mid) {
   }
 }
 // 获取课程信息
-// 课程信息因分现在和历史比较特殊 所以normalizr 写在了reducer里
 export function fetchLessonInfo(mid) {
   return {
     SERVER_API: {
@@ -22,6 +21,14 @@ export function fetchLessonInfo(mid) {
       endpoint: '/getLessonInfo',
       params: {
         mid
+      },
+      normailzerFun: response => {
+        const onlineCourse = normalize(response.data.currentLessonsList, schemes.CURRENTLESSONSLIST)
+        const historyCourse = normalize(response.data.historyLessonsList, schemes.HISTORYLESSONSLIST)
+        return {
+          onlineCourse,
+          historyCourse
+        }
       }
     }
   }
@@ -34,26 +41,33 @@ export function fetchStudentList() {
       endpoint: '/getStudentList',
       params: {
       },
-      normailzerFun:response=> normalize(response.data, schemes.STUDENTLIST)
+      normailzerFun: response => normalize(response.data, schemes.STUDENTLIST)
     }
   }
 }
 // 搜索学生
 export function searchStudent(mid) {
   return {
-      type: ActionTypes.SEARCH_STUDENT,
-      data:mid
-    }
+    type: ActionTypes.SEARCH_STUDENT,
+    data: mid
+  }
 }
 // 获取上课详情
-// 因信息内有教师信息 所以normalizr 写在了reducer里
 export function getClassInfo() {
   return {
     SERVER_API: {
       type: ActionTypes.FETCH_CLASS_INFO,
       endpoint: '/getClassInfo',
       params: {
-        id:1
+        id: 1
+      },
+      normailzerFun: response => {
+        const classList = normalize(response.data.list, schemes.CLASSLIST)
+        return {
+          ...response.data,
+          list:classList
+          
+        }
       }
     }
   }
@@ -67,28 +81,28 @@ export function getSatisfiledList(mid) {
       params: {
         mid
       },
-      normailzerFun:response=> normalize(response.data.list, schemes.SATISFILEDLIST)
+      normailzerFun: response => normalize(response.data.list, schemes.SATISFILEDLIST)
     }
   }
 }
 //  改变回复状态
 export function changeSatisfiled(index) {
   return {
-      type: ActionTypes.CHANGE_SATISFILED,
-      data:index
+    type: ActionTypes.CHANGE_SATISFILED,
+    data: index
   }
 }
 // 显示信息气泡
 export function showPopover(data) {
   return {
-      type: ActionTypes.SHOW_POPOVER,
-      data
+    type: ActionTypes.SHOW_POPOVER,
+    data
   }
 }
 // 隐藏信息气泡
 export function hidePopover(data) {
   return {
-      type: ActionTypes.HIDE_POPOVER,
-      data
+    type: ActionTypes.HIDE_POPOVER,
+    data
   }
 }

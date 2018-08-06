@@ -72,13 +72,7 @@ class ClassInfo extends Component {
             const newOnlineCourse =classListResult.map((item, index) => {
                 return {
                     key: index + 1,
-                    course_name: classListentities[item].course_name,
-                    time: classListentities[item].time,
-                    enter_status: classListentities[item].enter_status,
-                    homework_status: classListentities[item].homework_status,
-                    review_status: classListentities[item].review_status,
-                    clockin_status: classListentities[item].clockin_status,
-                    satisfied_score:classListentities[item].satisfied_score  
+                   ...classListentities[item]
                 }
             })
     return (
