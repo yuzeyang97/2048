@@ -23,8 +23,8 @@ const { Content } = Layout;
     render() {
       const {Actions} = this.props;
       const {userInfo, keysMap} =this.props.userInfo
-      const { onlineCourse,  historyCourse }=this.props.LessonInfo
-      const { satisFiledList }=this.props.satisFiledList
+      const { LessonInfo }=this.props
+      const { satisFiledList }=this.props
       const { popover }=this.props
       const {router}=this.props
       return (
@@ -33,8 +33,7 @@ const { Content } = Layout;
             <ContentTabWrap
              popover={popover}
              Actions={Actions}
-             onlineCourse={onlineCourse}
-             historyCourse={historyCourse}
+             LessonInfo={LessonInfo}
              satisFiledList={satisFiledList}
              router={router}
              />

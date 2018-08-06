@@ -1,6 +1,9 @@
 import React from 'react'
 import { Icon } from 'antd';
 import * as ActionTypes from '../const/ActionTypes';
+import { normalize } from 'normalizr';
+import * as schemes from '../schema';
+
 
 const initialState = {
     basicInfo:{},
@@ -14,23 +17,16 @@ const initialState = {
         virtmid:'ID',
         virwxcode:'微信'
     },
-    classList: [],
+    classListResult: [],
+    classListentities: {},
 }
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case `${ActionTypes.FETCH_CLASS_INFO}_SUC`: {
-            const newOnlineCourse = action.data.list.map((item, index) => {
-                return {
-                    key: index + 1,
-                    course_name: item.course_name,
-                    time: item.time,
-                    enter_status: item.enter_status,
-                    homework_status: item.homework_status,
-                    review_status: item.review_status,
-                    clockin_status: item.clockin_status,
-                    satisfied_score:item.satisfied_score  
-                }
-            })
+            const classList = normalize(action.data.list, schemes.CLASSLIST)
+            const classListentities=classList.entities.classList
+            const result=classList.result
+            console.log(classList,222222222222)
             const {basic_info}=action.data
             const newbasicInfo ={
                 classID:basic_info.id,
@@ -42,7 +38,7 @@ const reducer = (state = initialState, action) => {
                 virtname:basic_info.virtual_teacher.nick,
                 virwxcode:basic_info.virtual_teacher.wx_code,
             }
-            const newState = { ...state, classList: newOnlineCourse,basicInfo:newbasicInfo}
+            const newState = { ...state, classListResult:result,classListentities,basicInfo:newbasicInfo}
             return newState
         }
         case `${ActionTypes.FETCH_CLASS_INFO}_FAI`: {

@@ -1,4 +1,6 @@
 import * as ActionTypes from '../const/ActionTypes';
+import * as schemes from '../schema';
+import { normalize } from 'normalizr';
 // 获取用户信息
 export function fetchUserInfo(mid) {
   return {
@@ -12,6 +14,7 @@ export function fetchUserInfo(mid) {
   }
 }
 // 获取课程信息
+// 课程信息因分现在和历史比较特殊 所以normalizr 写在了reducer里
 export function fetchLessonInfo(mid) {
   return {
     SERVER_API: {
@@ -30,7 +33,8 @@ export function fetchStudentList() {
       type: ActionTypes.FETCH_STUDENT_LIST,
       endpoint: '/getStudentList',
       params: {
-      }
+      },
+      normailzerFun:response=> normalize(response.data, schemes.STUDENTLIST)
     }
   }
 }
@@ -42,6 +46,7 @@ export function searchStudent(mid) {
     }
 }
 // 获取上课详情
+// 因信息内有教师信息 所以normalizr 写在了reducer里
 export function getClassInfo() {
   return {
     SERVER_API: {
@@ -61,7 +66,8 @@ export function getSatisfiledList(mid) {
       endpoint: '/getSatisfiledList',
       params: {
         mid
-      }
+      },
+      normailzerFun:response=> normalize(response.data.list, schemes.SATISFILEDLIST)
     }
   }
 }

@@ -9,7 +9,7 @@ export default class ContentTab extends Component {
 
     }
     render() {
-        const { onlineCourse, CourseTitle, historyCourse,Actions,popover,router }=this.props
+        const { LessonInfo, CourseTitle,Actions,popover,router }=this.props
         console.log(router)
         return (
             <div>   
@@ -17,9 +17,9 @@ export default class ContentTab extends Component {
                 <Popover popover={popover}/>
                 <ContentFormCourse
                  Actions={Actions}
-                onlineCourse={onlineCourse}
+                 LessonInfo={LessonInfo}
                 CourseTitle={CourseTitle}
-                historyCourse={historyCourse}/>
+                />
             </div>
         );
     }

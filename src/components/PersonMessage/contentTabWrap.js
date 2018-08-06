@@ -14,14 +14,13 @@ export default class ContentTabWrap extends Component {
 
     }
     render() {
-        const { onlineCourse, historyCourse,satisFiledList ,Actions,popover,router}=this.props
+        const { LessonInfo,satisFiledList ,Actions,popover,router}=this.props
         return (
             <Tabs defaultActiveKey="1" onChange={callback}>
                 <TabPane tab="课程信息" key="1">
                 <ContentTabCourse 
                  router={router}
-                 onlineCourse={onlineCourse}
-                 historyCourse={historyCourse}
+                 LessonInfo={LessonInfo}
                  popover={popover}
                  Actions={Actions}
                  />

@@ -1,7 +1,13 @@
 import * as ActionTypes from '../../const/ActionTypes';
+import { normalize } from 'normalizr';
+import * as schemes from '../../schema';
+
 const initialState = {
-    onlineCourse: [],
-    historyCourse: []
+    onlineCourseResult: [],
+    historyCourseResult: [],
+    lessonsList:{},
+    classes:{},
+    teachers:{}
 }
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -10,38 +16,16 @@ const reducer = (state = initialState, action) => {
             return newState
         }
         case `${ActionTypes.FETCH_LESSON_INFO}_SUC`: {
-            const newOnlineCourse = action.data.currentLessonsList.map((item, index) => {
-                return {
-                    key: index + 1,
-                    class: item.classInfo.name,
-                    courseState: item.status ? '进行中' : '已结束',
-                    courseStart: item.startTime,
-                    teacher: item.teacherInfo.nick,
-                    courselv: item.enterRate,
-                    homeworklv: item.homeworkSubmitRate,
-                    review: item.beCommenttedRate,
-                    cardlv: item.signRate,
-                    degreelv: item.satisfyRate,
-                    teacher_info:item.teacherInfo
-                }
-            })
-            const newHistoryCourse = action.data.historyLessonsList.map((item, index) => {
-                return {
-                    key: index + 1,
-                    class: item.classInfo.name,
-                    courseState: item.status ? '进行中' : '已结束',
-                    courseStart: item.startTime,
-                    teacher: item.teacherInfo.nick,
-                    courselv: item.enterRate,
-                    homeworklv: item.homeworkSubmitRate,
-                    review: item.beCommenttedRate,
-                    cardlv: item.signRate,
-                    degreelv: item.satisfyRate,
-                    teacher_info:item.teacherInfo
-                }
-            })
-            const newState = { ...state, onlineCourse: newOnlineCourse, historyCourse: newHistoryCourse, loadFlag: false }
-            return newState
+           const onlineCourse = normalize(action.data.currentLessonsList, schemes.CURRENTLESSONSLIST)
+           const historyCourse=normalize(action.data.historyLessonsList, schemes.HISTORYLESSONSLIST)
+           const newState={...state,
+                            onlineCourseResult:onlineCourse.result,
+                            historyCourseResult:historyCourse.result,
+                            lessonsList:Object.assign({},onlineCourse.entities.currentLessonsList,historyCourse.entities.historyLessonsList),
+                            classes:Object.assign({},onlineCourse.entities.classes,historyCourse.entities.classes),
+                            teachers:Object.assign({},onlineCourse.entities.teachers,historyCourse.entities.teachers)}
+            console.log(newState)
+           return newState
         }
         case `${ActionTypes.FETCH_LESSON_INFO}_FAI`: {
             return state

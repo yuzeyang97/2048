@@ -8,9 +8,7 @@ export default class ContentWrap extends Component {
 
     }
     render() {
-        const { userInfo, keysMap } = this.props
-        console.log(userInfo)
-        console.log(keysMap)
+        const {  keysMap,userInfo } = this.props
         return (
             <div className="contentHeader-wrap">
                 <div className="user-icon">

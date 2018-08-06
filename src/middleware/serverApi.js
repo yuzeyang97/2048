@@ -26,10 +26,12 @@ export default store => next => action => {
   if (!action.SERVER_API) {
     return next(action);
   }
+
   const {
     type,
     endpoint,
-    params
+    params,
+    normailzerFun
   } = action.SERVER_API;
 
   if (typeof type !== 'string') {
@@ -48,9 +50,11 @@ export default store => next => action => {
 
   return callServerApi(endpoint, params)
     .then(res => {
+      const response = typeof (normailzerFun) !== 'undefined' ? normailzerFun(res.data) : res.data.data;
+      console.log(response)
       next({
         type: `${type}_SUC`,
-        data: res.data.data
+        data:response
       });
     }).catch(err => {
       next({

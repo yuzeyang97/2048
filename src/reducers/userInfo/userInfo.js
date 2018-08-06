@@ -19,6 +19,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
       case `${ActionTypes.FETCH_USER_INFO}_SUC`: {
+        console.log(action.data)
         action.data.learningLesson.join(' ')
         const newState = { ...state, userInfo: { ...action.data }, loadFlag: false }
         return newState

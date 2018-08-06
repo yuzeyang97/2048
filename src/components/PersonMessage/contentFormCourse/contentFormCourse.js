@@ -10,7 +10,7 @@ const renderResult = (prevText, nextText) => {
     else
         return (<span>{nextText}</span>)
 }
-const CourseTitle= [{
+const CourseTitle = [{
     title: '班级',
     dataIndex: 'class',
     key: 'class',
@@ -77,42 +77,74 @@ const CourseTitle= [{
 export default class ContentForm extends Component {
     constructor(props) {
         super(props)
-        
     }
     render() {
-        const { onlineCourse, historyCourse,Actions }=this.props;
-        CourseTitle[3].render=(text,record,index) => {
-            const showTeacherMsg=(e)=>{
+        const { LessonInfo, Actions } = this.props;
+        const {classes,lessonsList,teachers}=LessonInfo
+        const onlineCourse = LessonInfo.onlineCourseResult.map((item, index) => {
+            return {
+                key: index + 1,
+                class: classes[lessonsList[item].classInfo].name,
+                courseState: lessonsList[item].status ? '进行中' : '已结束',
+                courseStart: lessonsList[item].startTime,
+                teacher: teachers[lessonsList[item].teacherInfo].nick,
+                courselv: lessonsList[item].enterRate,
+                homeworklv: lessonsList[item].homeworkSubmitRate,
+                review: lessonsList[item].beCommenttedRate,
+                cardlv: lessonsList[item].signRate,
+                degreelv: lessonsList[item].satisfyRate,
+                teacher_info: teachers[lessonsList[item].teacherInfo]
+            }
+        })
+        const historyCourse = LessonInfo.historyCourseResult.map((item, index) => {
+            return {
+                key: index + 1,
+                class: classes[lessonsList[item].classInfo].name,
+                courseState: lessonsList[item].status ? '进行中' : '已结束',
+                courseStart: lessonsList[item].startTime,
+                teacher: teachers[lessonsList[item].teacherInfo].nick,
+                courselv: lessonsList[item].enterRate,
+                homeworklv: lessonsList[item].homeworkSubmitRate,
+                review: lessonsList[item].beCommenttedRate,
+                cardlv: lessonsList[item].signRate,
+                degreelv: lessonsList[item].satisfyRate,
+                teacher_info: teachers[lessonsList[item].teacherInfo]
+            }
+        })
+        CourseTitle[3].render = (text, record, index) => {
+            const showTeacherMsg = (e) => {
                 e.stopPropagation();
                 Actions.showPopover(record)
             }
-            return (<span onClick={showTeacherMsg} className='waitReply'><Icon type="qq"/>{text}</span>)
+            return (<span onClick={showTeacherMsg} className='waitReply'><Icon type="qq" />{text}</span>)
         }
-        return (  
+        return (
             <div className="contentForm-wrap">
                 <div className="contentForm-title">在学课程</div>
                 <Table
-                dataSource={onlineCourse} 
-                columns={CourseTitle} 
-                pagination={false} 
-                bordered 
-                onRow={(record) => {
-                    return {
-                      onClick: () => {console.log(record);window.location.href=`/class/${record.teacher_info.id}`} // 点击行
-                    };
-                  }} />
+                    dataSource={onlineCourse}
+                    columns={CourseTitle}
+                    pagination={false}
+                    bordered
+                    onRow={(record) => {
+                        return {
+                            onClick: () => { console.log(record); window.location.href = `/class/${record.teacher_info.id}` } // 点击行
+                        };
+                    }} />
                 <div className="contentForm-title">历史课程</div>
                 <Table
-                dataSource={historyCourse}
-                columns={CourseTitle}
-                pagination={false}
-                bordered
-                onRow={(record) => {
-                    return {
-                      onClick: () => {console.log(record);window.location.href=`/class/${record.teacher_info.id}`} // 点击行
-                    };
-                  }} />
+                    dataSource={historyCourse}
+                    columns={CourseTitle}
+                    pagination={false}
+                    bordered
+                    onRow={(record) => {
+                        return {
+                            onClick: () => { console.log(record); window.location.href = `/class/${record.teacher_info.id}` } // 点击行
+                        };
+                    }} />
             </div>
         );
     }
 }
+
+

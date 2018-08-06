@@ -47,9 +47,22 @@ class StudentMessage extends Component {
     Actions.fetchStudentList();
   }
   render() {
-    const { studentList, filteredValue } = this.props.studentList
+    const { entities, filteredValue,result } = this.props.studentList
+    const {students}=entities
     const { Actions } = this.props
     CourseTitle[1].filteredValue = filteredValue
+
+    const studentList = result.map((item, index) => {
+                return {
+                    key: index + 1,
+                    nick: students[item].nick,
+                    mid: students[item].mid,
+                    enter_time: students[item].enter_time,
+                    start_time: students[item].start_time,
+                    learning_lessons: students[item].learning_lessons.length?students[item].learning_lessons.join(' '):'无',
+                    teachers: students[item].teachers.length?students[item].teachers.join(' '):'无',
+                }
+            })
     return (
       <Content>
         <Search search={Actions.searchStudent} />
