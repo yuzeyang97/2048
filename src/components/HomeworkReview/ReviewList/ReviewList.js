@@ -6,7 +6,7 @@ import './ReviewList.css'
 export default class ReviewList extends Component {
     render() {
         const { entities,item} = this.props
-        const data = entities.reviewitem[item].comments
+        const data = entities.homework[item].comments
         return (
             <div className="reviewlist-wrapper">
                 <List

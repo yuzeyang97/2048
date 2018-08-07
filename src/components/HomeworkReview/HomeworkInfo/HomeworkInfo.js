@@ -18,13 +18,13 @@ export default class HomeworkInfo extends Component {
                 <div className="homeworkinfo-info">
                     <Avatar shape="square" icon="user" />
                     <div className='homeworkinfo-info-text'>
-                        <div><span>作业:</span><span>{entities.reviewitem[item].description}</span></div>
+                        <div><span>作业:</span><span>{entities.homework[item].description}</span></div>
                         <div className='homeworkinfo-info-bottom'>
-                        <div className="homeworkinfo-info-item"><span>冰雪</span> {entities.author[entities.reviewitem[item].author].nick}</div>
-                        <div className="homeworkinfo-info-item"><span>mid:</span><span>{entities.author[entities.reviewitem[item].author].mid}</span> </div>
-                        <div className="homeworkinfo-info-item"><span>{entities.classInfo[entities.reviewitem[item].classInfo].name}|</span><span>{entities.teacherInfo[entities.reviewitem[item].teacherInfo].nick}</span> </div>
-                        <div className="homeworkinfo-info-item"><span>点评人:</span><span>{entities.reviewitem[item].commentator}</span> </div>
-                        <div className="homeworkinfo-info-item"><span>提交时间:</span><span>{ date.toLocaleString(entities.reviewitem[item].time)}</span> </div>
+                        <div className="homeworkinfo-info-item"><span>冰雪</span> {entities.author[entities.homework[item].author].nick}</div>
+                        <div className="homeworkinfo-info-item"><span>mid:</span><span>{entities.author[entities.homework[item].author].mid}</span> </div>
+                        <div className="homeworkinfo-info-item"><span>{entities.classInfo[entities.homework[item].classInfo].name}|</span><span>{entities.teacherInfo[entities.homework[item].teacherInfo].nick}</span> </div>
+                        <div className="homeworkinfo-info-item"><span>点评人:</span><span>{entities.homework[item].commentator}</span> </div>
+                        <div className="homeworkinfo-info-item"><span>提交时间:</span><span>{ date.toLocaleString(entities.homework[item].time)}</span> </div>
                         </div>
                     </div>
                 </div>

@@ -49,7 +49,7 @@ const classInfo = new schema.Entity('classInfo',{},{
 const author = new schema.Entity('author',{},{
     idAttribute:'mid'
   })
-const currentUnreview = new schema.Entity('reviewitem',{
+const currentUnreview = new schema.Entity('homework',{
     comments:[comments],
     teacherInfo,
     classInfo,

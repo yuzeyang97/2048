@@ -22,7 +22,7 @@ export default class SwiperWrap extends Component {
             <div className="wxchat-banner">
                 <section className="new_custom swiper-container index_tab_con" ref={self => this.swiperID = self}>
                     <div className="swiper-wrapper">
-                    {entities.reviewitem[item].photos.map((item)=>{
+                    {entities.homework[item].photos.map((item)=>{
                         console.log(item)
                         return  <div className="swiper-slide"><img className='swiper-img'src={item}/></div>
                     })}

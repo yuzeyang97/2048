@@ -28,7 +28,7 @@ const { Content } = Layout;
       return (
         <Content>         
             <HomeworkHeader/>
-            <HomeworkTabContent entities={entities.currentUnreviw} homework={homework}/>
+            <HomeworkTabContent entities={entities} homework={homework}/>
         </Content>
       );
     }
