@@ -128,7 +128,7 @@ export default class ContentForm extends Component {
                     bordered
                     onRow={(record) => {
                         return {
-                            onClick: () => { console.log(record); window.location.href = `/class/${record.teacher_info.id}` } // 点击行
+                            onClick: () => { window.location.href = `/class/${record.teacher_info.id}` } // 点击行
                         };
                     }} />
                 <div className="contentForm-title">历史课程</div>
@@ -139,7 +139,7 @@ export default class ContentForm extends Component {
                     bordered
                     onRow={(record) => {
                         return {
-                            onClick: () => { console.log(record); window.location.href = `/class/${record.teacher_info.id}` } // 点击行
+                            onClick: () => {  window.location.href = `/class/${record.teacher_info.id}` } // 点击行
                         };
                     }} />
             </div>

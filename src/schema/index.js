@@ -36,8 +36,31 @@ const historyLessonsList = new schema.Entity('historyLessonsList',{
 const classList = new schema.Entity('classList',{},{
   idAttribute:'time'
 })
+
+const comments = new schema.Entity('comments', {}, {
+  idAttribute: 'id'
+});
+const teacherInfo = new schema.Entity('teacherInfo',{},{
+  idAttribute:'id'
+})
+const classInfo = new schema.Entity('classInfo',{},{
+    idAttribute:'id'
+  })
+const author = new schema.Entity('author',{},{
+    idAttribute:'mid'
+  })
+const currentUnreview = new schema.Entity('reviewitem',{
+    comments:[comments],
+    teacherInfo,
+    classInfo,
+    author
+},{
+  idAttribute:'id'
+})
+
 export const SATISFILEDLIST = [ satisfiled ];
 export const STUDENTLIST = [ students ];
 export const CURRENTLESSONSLIST= [ currentLessonsList ];
 export const HISTORYLESSONSLIST= [ historyLessonsList ];
 export const CLASSLIST= [ classList ];
+export const CURRENTUNREVIEW= [ currentUnreview ];

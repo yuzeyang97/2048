@@ -37,7 +37,6 @@ export default class ContentForm extends Component {
     }
     changeStatus = (record) => {
         const { Actions } = this.props
-        console.log(record,33333333333)
         Actions.changeSatisfiled(record)
     }
     rowKey = (record, i) => `${record.class_info && record.class_info.id}_${i}`

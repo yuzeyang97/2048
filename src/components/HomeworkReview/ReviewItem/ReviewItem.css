@@ -1,0 +1,16 @@
+.reviewitem-wrapper{
+    display:flex;
+    margin-top:20px;
+    justify-content: space-between;
+    padding:20px;
+    flex-flow: column
+}
+.reviewitem-top{
+    display:flex;
+    margin-top:20px;
+    justify-content: space-between;
+}
+
+.reviewitem-reject{
+    color: red
+}

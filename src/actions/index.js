@@ -106,3 +106,63 @@ export function hidePopover(data) {
     data
   }
 }
+
+// 获取当前老师未点评任务
+export function getCurrentUnreview() {
+  return {
+    SERVER_API: {
+      type: ActionTypes.GET_CURRENT_UNREVIEW,
+      endpoint: '/getHomeWork',
+      params: {
+        token:1,
+        isReviewed:0
+      },
+      normailzerFun: response =>normalize(response.data, schemes.CURRENTUNREVIEW)
+    }
+  }
+}
+
+// 获取当前老师已点评任务
+export function getCurrentReview(mid) {
+  return {
+    SERVER_API: {
+      type: ActionTypes.GET_CURRENT_REVIEW,
+      endpoint: '/getHomeWork',
+      params: {
+        token:1,
+        isReviewed:1
+      },
+      normailzerFun: response =>normalize(response.data, schemes.CURRENTUNREVIEW)
+    }
+  }
+}
+
+// 获取全部未点评任务
+export function getAllUnreview(mid) {
+  return {
+    SERVER_API: {
+      type: ActionTypes.GET_ALL_UNREVIEW,
+      endpoint: '/getHomeWork',
+      params: {
+        token:0,
+        isReviewed:0
+      },
+      normailzerFun: response =>normalize(response.data, schemes.CURRENTUNREVIEW)
+    }
+  }
+}
+
+// 获取全部已点评任务
+export function getAllReview(mid) {
+  return {
+    SERVER_API: {
+      type: ActionTypes.GET_ALL_REVIEW,
+      endpoint: '/getHomeWork',
+      params: {
+        token:0,
+        isReviewed:1
+      },
+      normailzerFun: response =>normalize(response.data, schemes.CURRENTUNREVIEW)
+    }
+  }
+}

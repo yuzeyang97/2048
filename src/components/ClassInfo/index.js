@@ -68,7 +68,6 @@ class ClassInfo extends Component {
 
   render() {
     const { classListResult,classListentities,basicInfo, keysMap } = this.props.classInfo
-    console.log(classListResult,classListentities)
             const newOnlineCourse =classListResult.map((item, index) => {
                 return {
                     key: index + 1,

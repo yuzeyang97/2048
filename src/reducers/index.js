@@ -5,6 +5,8 @@ import studentList from './studentList.js'
 import classInfo from './classInfo.js'
 import popover from './popover.js'
 import {combineReducers} from 'redux'
+import entities from './entities.js'
+import homework from './homeworkReview/homework'
 
 
 export default combineReducers({
@@ -13,5 +15,7 @@ export default combineReducers({
   satisFiledList,
   studentList,
   classInfo,
-  popover
+  popover,
+  entities,
+  homework
 })

@@ -4,7 +4,7 @@ import { Table, Layout} from 'antd';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../../actions';
-import Search from './search/search.js'
+import Search from '../search/search.js'
 import './index.css'
 
 const { Content } = Layout;

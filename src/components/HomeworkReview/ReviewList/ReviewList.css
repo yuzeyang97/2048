@@ -1,0 +1,4 @@
+.reviewlist-wrapper .ant-spin-container{
+    overflow: scroll;
+    height: 580px;
+}

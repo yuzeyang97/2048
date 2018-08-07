@@ -1,0 +1,24 @@
+.homeworkinfo-wrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top:20px;
+}
+
+.homeworkinfo-info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.homeworkinfo-info-bottom{
+    display: flex
+}
+
+.homeworkinfo-info-text{
+    margin-left:10px
+}
+
+.homeworkinfo-info-item{
+    margin-right:2px;
+}

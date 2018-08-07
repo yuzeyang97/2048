@@ -4,10 +4,6 @@ import ContentTabCourse from './contentTabCourse.js';
 import ContenTabSatisfiled from './contenTabSatisfiled.js';
 const TabPane = Tabs.TabPane;
 
-function callback(key) {
-    console.log(key);
-}
-
 export default class ContentTabWrap extends Component {
     constructor(props) {
         super(props)
@@ -16,7 +12,7 @@ export default class ContentTabWrap extends Component {
     render() {
         const { LessonInfo,satisFiledList ,Actions,popover,router}=this.props
         return (
-            <Tabs defaultActiveKey="1" onChange={callback}>
+            <Tabs defaultActiveKey="1">
                 <TabPane tab="课程信息" key="1">
                 <ContentTabCourse 
                  router={router}

@@ -1,6 +1,5 @@
 import * as ActionTypes from '../../const/ActionTypes';
-import { normalize } from 'normalizr';
-import * as schemes from '../../schema';
+
 
 const initialState = {
     onlineCourseResult: [],
@@ -21,11 +20,10 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 onlineCourseResult: onlineCourse.result,
                 historyCourseResult: historyCourse.result,
-                lessonsList: Object.assign({}, onlineCourse.entities.currentLessonsList, historyCourse.entities.historyLessonsList),
-                classes: Object.assign({}, onlineCourse.entities.classes, historyCourse.entities.classes),
-                teachers: Object.assign({}, onlineCourse.entities.teachers, historyCourse.entities.teachers)
+                lessonsList: {...onlineCourse.entities.currentLessonsList,...historyCourse.entities.historyLessonsList},
+                classes: {...onlineCourse.entities.classes,...historyCourse.entities.classes},
+                teachers: {...onlineCourse.entities.teachers,...historyCourse.entities.teachers}
             }
-            console.log(newState)
             return newState
         }
         case `${ActionTypes.FETCH_LESSON_INFO}_FAI`: {

@@ -12,7 +12,6 @@ const reducer = (state = initialState, action) => {
         }
         case `${ActionTypes.FETCH_SATISFILED_LIST}_SUC`: {
             const { entities,result } = action.data
-            console.log(entities)
             const newState = { ...state,entities,result}
             return newState
         }
@@ -21,8 +20,6 @@ const reducer = (state = initialState, action) => {
         }
         case `${ActionTypes.CHANGE_SATISFILED}`: {
             const newState = { ...state }
-            console.log(newState.entities,4444444444)
-            console.log(action.data)
             newState.entities.satisfiled[action.data.time].reply_status = 1
             return newState
 
