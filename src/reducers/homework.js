@@ -1,4 +1,4 @@
-import * as ActionTypes from '../../const/ActionTypes';
+import * as ActionTypes from '../const/ActionTypes';
 const initialState = {
     currentUnreview:[],
     currentReview:[],

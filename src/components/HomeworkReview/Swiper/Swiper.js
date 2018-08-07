@@ -12,7 +12,10 @@ export default class SwiperWrap extends Component {
                 prevEl: '.swiper-button-prev',
               },
             observer: true,
-            autoplay:true
+            autoplay:true,
+            slidesPerView:3,
+            spaceBetween:30,
+            loop:true
         });
     }
     render() {
@@ -21,7 +24,7 @@ export default class SwiperWrap extends Component {
         return (
             <div className="wxchat-banner">
                 <section className="new_custom swiper-container index_tab_con" ref={self => this.swiperID = self}>
-                    <div className="swiper-wrapper">
+                    <div className="swiper-wrapper swiper-container-horizontal">
                     {entities.homework[item].photos.map((item)=>{
                         console.log(item)
                         return  <div className="swiper-slide"><img className='swiper-img'src={item}/></div>

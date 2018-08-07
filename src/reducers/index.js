@@ -6,7 +6,7 @@ import classInfo from './classInfo.js'
 import popover from './popover.js'
 import {combineReducers} from 'redux'
 import entities from './entities.js'
-import homework from './homeworkReview/homework'
+import homework from './homework'
 
 
 export default combineReducers({
