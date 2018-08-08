@@ -3,7 +3,8 @@ const initialState = {
     currentUnreview:[],
     currentReview:[],
     allUnreview:[],
-    allReview:[]
+    allReview:[],
+    filterMid:''
 }
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -22,19 +23,22 @@ const reducer = (state = initialState, action) => {
         case `${ActionTypes.REVIEW_HOMWWORK}`: {
             const {belong,item}=action.data
             const newState={...state}
-            if(belong=='currentUnreview'){
+            if(belong=='currentUnreview'||belong=='allUnreview'){
                 const idex=newState.currentUnreview.indexOf(item)
-                const reviewItemId=newState.currentUnreview.splice(idex,1)[0]
-                newState.currentReview.unshift(reviewItemId);
-                newState.allReview.unshift(reviewItemId)
-            }
-            if(belong=='allUnreview'){
-                const idex=newState.allUnreview.indexOf(item)
-                const reviewItemId=newState.allUnreview.splice(idex,1)[0]
-                newState.allReview.unshift(reviewItemId)
+                const idex2=newState.allUnreview.indexOf(item)
+                if(idex!==-1){
+                    newState.currentUnreview.splice(idex,1)
+                    newState.currentReview.unshift(item);
+                }
+                newState.allUnreview.splice(idex2,1)
+                newState.allReview.unshift(item);
             }
             return newState
         }
+        case `${ActionTypes.SEARCH_HOMEWORK}`: {
+            return {...state,filterMid:action.data}
+        }
+       
         default:
             return state
     }

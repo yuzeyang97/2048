@@ -20,13 +20,11 @@ export default class SwiperWrap extends Component {
     }
     render() {
         const { entities,item} = this.props
-        console.log(entities)
         return (
             <div className="wxchat-banner">
                 <section className="new_custom swiper-container index_tab_con" ref={self => this.swiperID = self}>
                     <div className="swiper-wrapper swiper-container-horizontal">
                     {entities.homework[item].photos.map((item)=>{
-                        console.log(item)
                         return  <div className="swiper-slide"><img className='swiper-img'src={item}/></div>
                     })}
                     </div>

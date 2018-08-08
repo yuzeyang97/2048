@@ -15,7 +15,7 @@ export default class HomeworkContent extends Component{
                     <ReviewHomework entities={entities}  item={item} idex={idex} belong={belong} Actions={Actions}/>
                 </div>
                 <div className="homeworkcontent-right"> 
-                    <ReviewList entities={entities}  item={item}/>
+                    <ReviewList entities={entities}  item={item} Actions={Actions}/>
                 </div>
             </div>
         )

@@ -4,10 +4,11 @@ import './HomeworkHeader.css'
 
 export default class HomeworkHeader extends Component{
     render(){
+        const {Actions}=this.props
         return(
             <div className="homeworkheader-wrapper">
                 <div className="homeworkheader-user">周围</div>
-                <Search/>
+                <Search search={Actions.searchHomework}/>
             </div>
         )
     }

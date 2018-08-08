@@ -5,14 +5,14 @@ import './ReviewList.css'
 
 export default class ReviewList extends Component {
     render() {
-        const { entities,item} = this.props
+        const { entities,item,Actions} = this.props
         const data = entities.homework[item].comments
         return (
             <div className="reviewlist-wrapper">
                 <List
                     bordered
                     dataSource={data}
-                    renderItem={item => (<ReviewItem  entities={entities} item={item}/>)}
+                    renderItem={item => (<ReviewItem  entities={entities} item={item} Actions={Actions}/>)}
                 />
             </div>
         )

@@ -1,6 +1,6 @@
 import { schema } from 'normalizr';
 
-
+// 满意度反馈
 const classes = new schema.Entity('classes', {}, {
   idAttribute: 'id'
 });
@@ -14,11 +14,11 @@ const satisfiled = new schema.Entity('satisfiled',{
 },{
   idAttribute:'time'
 })
-
+// 学生列表
 const students = new schema.Entity('students', {}, {
   idAttribute: 'mid'
 });
-
+// 个人档案列表
 const currentLessonsList = new schema.Entity('currentLessonsList', {
   classInfo:classes,
   teacherInfo:teacher
@@ -33,6 +33,8 @@ const historyLessonsList = new schema.Entity('historyLessonsList',{
   idAttribute:'id'
 })
 
+
+// homework
 const classList = new schema.Entity('classList',{},{
   idAttribute:'time'
 })

@@ -4,10 +4,10 @@ import './ReviewHomework.css'
 const { TextArea } = Input;
 
 export default class ReviewHomework extends Component {
-    constructor(){
+    constructor() {
         super();
-        this.state={
-            inputValue:''
+        this.state = {
+            inputValue: ''
         }
     }
     changeValue = (e) => {
@@ -15,17 +15,19 @@ export default class ReviewHomework extends Component {
             inputValue: e.target.value
         })
     }
-    handle=()=>{
-        const text=this.state.inputValue
-        if(!text){
+    handle = () => {
+        const text = this.state.inputValue
+        var timestamp = (new Date()).valueOf();
+        if (!text) {
             alert('输入有误')
             return
         }
-        const { entities, item, belong,Actions } = this.props
-        const data={
+        const { entities, item, belong, Actions } = this.props
+        const data = {
             text,
             item,
-            belong
+            belong,
+            timestamp
         }
         Actions.reviewHomework(data);
         this.setState({
@@ -33,10 +35,9 @@ export default class ReviewHomework extends Component {
         })
     }
     render() {
-       
         return (
             <div className='reviewhomework-wrap'>
-                <TextArea placeholder="Autosize height based on content lines" onChange={this.changeValue} autosize />
+                <TextArea placeholder="请输入点评文字" onChange={this.changeValue} autosize value={this.state.inputValue} />
                 <Button type="primary" onClick={this.handle}>发送</Button>
             </div>
         )

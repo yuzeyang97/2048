@@ -173,3 +173,18 @@ export function reviewHomework (data) {
     data
   }
 }
+
+// 退回
+export function reviewReject (data) {
+  return {
+    type: ActionTypes.REVIEW_REJECT,
+    data
+  }
+}
+// 搜索作业
+export function searchHomework(mid) {
+  return {
+    type: ActionTypes.SEARCH_HOMEWORK,
+    data: mid
+  }
+}

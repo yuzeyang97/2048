@@ -27,7 +27,7 @@ const { Content } = Layout;
       const {entities,homework}=this.props
       return (
         <Content>         
-            <HomeworkHeader/>
+            <HomeworkHeader Actions={Actions}/>
             <HomeworkTabContent entities={entities} homework={homework} Actions={Actions}/>
         </Content>
       );
