@@ -11,6 +11,9 @@ export default class HomeworkList extends Component {
             if(homework.filterMid){
                 if(data.indexOf(homework.filterMid)!=-1)
                 data=[homework.filterMid]
+                else{
+                    alert('没有匹配到所指mid 请重新输入')
+                }
             }
         }
         return (

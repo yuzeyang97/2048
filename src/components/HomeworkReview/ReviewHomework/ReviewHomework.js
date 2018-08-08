@@ -29,6 +29,7 @@ export default class ReviewHomework extends Component {
             belong,
             timestamp
         }
+        Actions.searchHomework('');
         Actions.reviewHomework(data);
         this.setState({
             inputValue: ''
