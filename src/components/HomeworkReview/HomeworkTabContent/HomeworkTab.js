@@ -14,7 +14,7 @@ export default class HomeworkTab extends Component{
                 <span className="homeworktab-unreview">{homework[belong].length}</span>:''}
                 </div>
                 {belong=='allReview'||belong=='currentReview'?
-                <div className="homeworktab-review">{homework[belong].length}</div>:''}
+                <div className="homeworktab-review">总数为:{homework[belong].length}</div>:''}
             </div>
         )
     }

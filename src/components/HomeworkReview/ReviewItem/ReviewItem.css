@@ -15,8 +15,10 @@
     color: red
 }
 
-.rejectBtn-wrap{
-    text-align: center;
+
+
+.rejectBtn-wrap button{
+    float: right;;
 }
 
 .reviewitem-left{

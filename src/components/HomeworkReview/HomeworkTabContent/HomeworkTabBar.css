@@ -16,14 +16,19 @@
 }
 .homeworktab-unreview{
     background: red;
-    color: black;
+    color: white;
     display: inline-block;
     border-radius: 50%;
     width:30px;
     height:30px;
     text-align: center;
     line-height: 30px;
-    font-weight: bold
+    font-weight: bold;
+    margin-left:5px;
+}
+
+.homeworktab-review{
+    margin-left:35px;
 }
 
 
