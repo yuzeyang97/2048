@@ -11,12 +11,6 @@ export default class HomeworkList extends Component {
             if(homework.filterMid){
                 if(data.indexOf(homework.filterMid)!=-1)
                 data=[homework.filterMid]
-                else{
-                    alert('无此MID')
-                }
-            }
-            else{
-                data = homework[belong]
             }
         }
         return (

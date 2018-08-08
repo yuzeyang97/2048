@@ -19,8 +19,8 @@ export default class ReviewItem extends Component {
                         <div>{itemSelf.content}</div>
                     </div>
                     <div className="reviewitem-right">
-                        <div>{date.toLocaleString(itemSelf.time)}</div>
-                        <div>{itemSelf.status=="unrevised" ? <Button onClick={this.reviewReject}>退回</Button>:''}</div>
+                        <div className="reviewitem-time">{date.toLocaleString(itemSelf.time)}</div>
+                        <div className="rejectBtn-wrap">{itemSelf.status=="unrevised" ? <Button onClick={this.reviewReject}>退回</Button>:''}</div>
                     </div>
                 </div>
                 <div className="reviewitem-reject">{itemSelf.status=="reject" ? itemSelf.reason : ''}</div>

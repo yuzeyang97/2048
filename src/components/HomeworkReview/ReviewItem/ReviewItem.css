@@ -14,3 +14,20 @@
 .reviewitem-reject{
     color: red
 }
+
+.rejectBtn-wrap{
+    text-align: center;
+}
+
+.reviewitem-left{
+    width: 70%;
+    word-break:break-all;
+    word-wrap:break-word; 
+}
+.reviewitem-right{
+    width: 30%;
+}
+
+.reviewitem-time{
+    white-space: nowrap;
+}

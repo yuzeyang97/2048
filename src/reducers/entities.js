@@ -19,6 +19,12 @@ function homework(state = {}, action) {
             newState[action.data.item].comments.unshift(action.data.timestamp)
             return newState
         }
+        case `${ActionTypes.CHANGE_EXCELLENT}`: {
+            const newState = { ...state }
+            newState[action.data.item].isExcellent=action.data.flag
+            return newState
+        }
+       
         default:
             return state
     }

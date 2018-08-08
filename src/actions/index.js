@@ -188,3 +188,13 @@ export function searchHomework(mid) {
     data: mid
   }
 }
+// 改变佳作
+export function changeExcellent(item,flag) {
+  return {
+    type: ActionTypes.CHANGE_EXCELLENT,
+    data:{
+      item,
+      flag
+    }
+  }
+}
