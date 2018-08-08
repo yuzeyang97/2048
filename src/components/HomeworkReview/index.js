@@ -28,7 +28,7 @@ const { Content } = Layout;
       return (
         <Content>         
             <HomeworkHeader/>
-            <HomeworkTabContent entities={entities} homework={homework}/>
+            <HomeworkTabContent entities={entities} homework={homework} Actions={Actions}/>
         </Content>
       );
     }

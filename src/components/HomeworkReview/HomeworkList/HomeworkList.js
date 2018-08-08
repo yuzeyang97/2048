@@ -5,14 +5,15 @@ import './HomeworkList.css'
 
 export default class HomeworkList extends Component {
     render() {
-        const { entities, homework,belong } = this.props
+        const { entities, homework,belong,Actions } = this.props
         const data = homework[belong]
         return (
             <div className="homeworklist-wrapper">
                 <List
                     bordered
                     dataSource={data}
-                    renderItem={item => (<HomeworkContent entities={entities} item={item}/>)}
+                    renderItem={(item,idex) => {
+                        return (<HomeworkContent entities={entities} item={item} idex={idex} belong={belong} Actions={Actions}/>)}}
                 />
             </div>
         )

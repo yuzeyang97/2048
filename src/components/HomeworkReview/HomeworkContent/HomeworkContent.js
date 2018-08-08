@@ -6,13 +6,13 @@ import ReviewList from '../ReviewList/ReviewList.js'
 import './homeworkcontent.css'
 export default class HomeworkContent extends Component{
     render(){
-        const { entities,item} = this.props
+        const { entities,item,idex,belong,Actions} = this.props
         return(
             <div className="homeworkcontent-wrapper">
                 <div className="homeworkcontent-left">
                     <Swiper entities={entities} item={item} />
                     <HomeworkInfo entities={entities}  item={item}/>
-                    <ReviewHomework entities={entities}  item={item}/>
+                    <ReviewHomework entities={entities}  item={item} idex={idex} belong={belong} Actions={Actions}/>
                 </div>
                 <div className="homeworkcontent-right"> 
                     <ReviewList entities={entities}  item={item}/>

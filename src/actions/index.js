@@ -166,3 +166,10 @@ export function getAllReview(mid) {
     }
   }
 }
+//提交评论
+export function reviewHomework (data) {
+  return {
+    type: ActionTypes.REVIEW_HOMWWORK,
+    data
+  }
+}

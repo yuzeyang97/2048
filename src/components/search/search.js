@@ -6,7 +6,9 @@ import './search.css'
 export default class Search extends Component {
   constructor(props) {
     super(props)
-
+    this.state={
+      inputValue:''
+    }
   }
   render() {
     const menu = (
@@ -21,7 +23,7 @@ export default class Search extends Component {
             mid <Icon type="down" />
           </Button>
         </Dropdown>
-        <Input onChange={this.changeValue} placeholder='请输入MID' /><Button type="primary" onClick={this.console}>搜索</Button>
+        <Input onChange={this.changeValue} placeholder='请输入MID' /><Button type="primary" onClick={this.handle}>搜索</Button>
       </div>
     );
   }
@@ -30,7 +32,7 @@ export default class Search extends Component {
       inputValue: e.target.value
     })
   }
-  console = () => {
+  handle = () => {
     this.props.search(this.state.inputValue)
   }
 }

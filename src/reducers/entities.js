@@ -68,6 +68,10 @@ function comments(state = {}, action) {
         case `${ActionTypes.GET_ALL_REVIEW}_SUC`: {
             return {...state,...action.data.entities.comments}
         }
+        case `${ActionTypes.REVIEW_HOMWWORK}`: {
+            console.log(action.data)
+            return state
+        }
         default:
             return state
     }
