@@ -52,7 +52,6 @@ export default class HomeworkTabBar extends Component {
                         })
                     }
                 </Tabs>
-
             </div>
         )
     }

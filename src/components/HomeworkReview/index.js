@@ -35,7 +35,11 @@ const { Content } = Layout;
   }
 
   function mapStateToProps(state) {
-    const props = { ...state };
+    const{entities,homework}=state
+    const props = {
+      entities,
+      homework
+    }
     return props;
   }
   
