@@ -10,7 +10,7 @@ export default class Dialog extends React.Component {
     };
 
     static propTypes = {
-        value: PropTypes.number,
+        value: PropTypes.number.isRequired,
         showCancel: PropTypes.bool,
         onCancel: PropTypes.func,
     }

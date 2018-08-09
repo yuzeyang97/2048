@@ -71,6 +71,7 @@ export default class App extends Component {
     this.setState({
       switchchecked:!switchchecked
     })
+    console.log('这是回调函数 当前状态',!switchchecked)
   }
   render() {
     return (

@@ -9,7 +9,7 @@ export default class Dialog extends React.Component {
     };
 
     static propTypes = {
-        checked: PropTypes.bool,
+        checked: PropTypes.bool.isRequired,
         onChange: PropTypes.func,
     }
     getClass(){

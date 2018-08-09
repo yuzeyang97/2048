@@ -26,10 +26,10 @@ export default class Dialog extends React.Component {
         })
     }
     handleTouchMousemove=(e)=>{
-        // 18为变量 实际应用中设为到左边距离
         if(this.state.flag==1){
-            this.sliderHandler.style.left=e.changedTouches[0].pageX-18+'px';
-            this.sliderTrack.style.width=e.changedTouches[0].pageX-18+'px';
+            console.log(this.slideInner.offsetLeft)
+            this.sliderHandler.style.left=e.changedTouches[0].pageX-this.slideInner.offsetLeft+'px';
+            this.sliderTrack.style.width=e.changedTouches[0].pageX-this.slideInner.offsetLeft+'px';
             let Innerwidth=document.defaultView.getComputedStyle(this.slideInner, null)['width']
             let handlLeft= this.sliderTrack.style.width
             Innerwidth=Number(Innerwidth.replace('px',''))
@@ -45,8 +45,9 @@ export default class Dialog extends React.Component {
     }
     handleMousemove=(e)=>{
         if(this.state.flag==1){
-            this.sliderHandler.style.left=e.pageX-18+'px';
-            this.sliderTrack.style.width=e.pageX-18+'px';
+            console.log(this.slideInner.offsetLeft)
+            this.sliderHandler.style.left=e.pageX-this.slideInner.offsetLeft+'px';
+            this.sliderTrack.style.width=e.pageX-this.slideInner.offsetLeft+'px';
             let Innerwidth=document.defaultView.getComputedStyle(this.slideInner, null)['width']
             let handlLeft= this.sliderTrack.style.width
             Innerwidth=Number(Innerwidth.replace('px',''))
@@ -73,8 +74,8 @@ export default class Dialog extends React.Component {
     render() {
         return (
             <div className="sliderWrapper" >
-            <div className="slider" onMouseMove={this.handleMousemove} onTouchMove={this.handleTouchMousemove} onMouseUp={this.handleMouseUp} onMouseLeave={this.leave} onTouchCancel={this.leave}>
-                <div className="sliderInner" ref={self => this.slideInner = self}>
+            <div className="slider" onMouseMove={this.handleMousemove} onTouchMove={this.handleTouchMousemove} onMouseUp={this.handleMouseUp} onMouseLeave={this.leave} onTouchEnd={this.leave}>
+                <div className="sliderInner"  ref={self => this.slideInner = self}>
                     <div  ref={self => this.sliderTrack = self} style={{width: this.props.defaultValue+'%'}} className="sliderTrack"></div>
                     <div  ref={self => this.sliderHandler = self} style={{left: this.props.defaultValue+'%'}} className="sliderHandler" onMouseDown={this.handleMousedown}  onTouchStart={this.handleMousedown} ></div>
                 </div>
