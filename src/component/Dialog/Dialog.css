@@ -1,0 +1,110 @@
+@keyframes opacityShow
+{
+  from {opacity: 0;}
+  to {opacity:1;}
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .6);
+    animation: opacityShow .3s ease-in;
+    animation-iteration-count:1
+  }
+
+  .showBody-ios , .showBody-android{
+    animation: opacityShow .3s ease-in;
+    animation-iteration-count:1;
+    color: #000;
+    font-size: 17px;
+    transform: translate(-50%,-50%);
+    transition: opacity .3s ease-in;
+    position: absolute;
+    top:50%;
+    left:50%;
+    width:60%;
+    background-color: #EFEFF4;
+    z-index: 100;
+    border-radius: 5px;
+  }
+
+  .showBody-ios .dialog-title {
+    padding: 1.3em 1.6em 0.5em;
+    text-align: center;
+    font-weight: 400;
+    font-size: 18px;
+  }
+  .showBody-ios .dialog-body{
+    padding: 0 1.6em 0.8em;
+    min-height: 40px;
+    font-size: 15px;
+    line-height: 1.3;
+    word-wrap: break-word;
+    word-break: break-all;
+    color: #808080;
+}
+
+.showBody-ios .btnWrap{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    line-height: 48px;
+    font-size: 18px;
+    border-top: 0.5px #D5D5D6 solid
+}
+
+.showBody-ios  .btn-cancel {
+    border-right: 0.5px #D5D5D6 solid;
+    text-align: center;
+    flex:1
+  }
+
+  .showBody-ios .btn-ok{
+    text-align: center;
+    color: green;
+    flex:1
+}
+
+.showBody-android .dialog-title {
+    padding: 1.3em 1.6em 0.5em;
+    text-align:left;
+    font-size: 21px;
+    font-weight: 400;
+  }
+
+.showBody-android .dialog-body{
+    color: #808080;
+    padding: 0.25em 1.6em 2em;
+    font-size: 17px;
+    text-align: left;
+}
+
+.showBody-android .btnWrap{
+    display: flex;
+    justify-content: flex-end;
+    line-height: 42px;
+    font-size: 16px;
+    padding: 0 1.6em 0.7em;
+}
+
+.showBody-android .btn-ok{
+    text-align: right;
+    color: green;
+    padding: 0 .8em
+}
+
+.showBody-android .btn-cancel{
+    text-align: right;
+    padding: 0 .8em
+}
+
+  .hide{
+    display: none
+    }
+
+.show{
+    display: block
+    }
