@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './switch.css';
 
-export default class Dialog extends React.Component {
+export default class Switch extends React.Component {
     static defaultProps = {
         checked:true,
         onChange: () => { alert('转换') },

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Slider.css';
 
-export default class Dialog extends React.Component {
+export default class Slider extends React.Component {
     constructor(){
         super()
         this.state={

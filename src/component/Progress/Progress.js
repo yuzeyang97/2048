@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './progress.css';
 
-export default class Dialog extends React.Component {
+export default class Progress extends React.Component {
     static defaultProps = {
         value: 50,
         showCancel: true,
