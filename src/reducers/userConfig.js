@@ -14,7 +14,6 @@ const initialState = {
     selectList:[],
     deleteSelectList:[]
 }
-
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case `${ActionTypes.CHANGE_CURRENT_SELECT}`: {

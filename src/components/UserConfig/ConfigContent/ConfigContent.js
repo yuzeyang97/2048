@@ -13,6 +13,8 @@ export default class ConfigContent extends Component {
             currentView,
             selectList
         }
+        Actions.filterHandleLoad('')
+        Actions.filterHandleResult('')
         Actions.addperson(data)
     }
     render() {
