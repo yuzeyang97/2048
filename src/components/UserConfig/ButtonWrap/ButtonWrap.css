@@ -1,0 +1,14 @@
+.buttonwrap{
+    display: inline-block;
+    position: relative;
+}
+
+.deletebtn{
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    right: 33px;
+    top: 3px;
+    color: red;
+    cursor: pointer;
+}

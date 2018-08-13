@@ -1,0 +1,35 @@
+.reviewitem-wrapper{
+    display:flex;
+    margin-top:20px;
+    justify-content: space-between;
+    padding:20px;
+    flex-flow: column
+}
+.reviewitem-top{
+    display:flex;
+    margin-top:20px;
+    justify-content: space-between;
+}
+
+.reviewitem-reject{
+    color: red
+}
+
+
+
+.rejectBtn-wrap button{
+    float: right;;
+}
+
+.reviewitem-left{
+    width: 70%;
+    word-break:break-all;
+    word-wrap:break-word; 
+}
+.reviewitem-right{
+    width: 30%;
+}
+
+.reviewitem-time{
+    white-space: nowrap;
+}

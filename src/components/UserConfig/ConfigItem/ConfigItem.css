@@ -1,0 +1,9 @@
+.configitem-wrap{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    align-items: center;
+    border: 1px solid #bbb4b4;
+    border-radius: 6px;
+    margin: 10px 0;
+}

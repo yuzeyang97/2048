@@ -1,0 +1,12 @@
+
+ .ant-spin-container .ant-table-row{
+    text-align: center;
+}
+
+ .ant-spin-container .ant-table-thead th{
+    text-align: center;
+}
+
+.search-wrap~.ant-table-wrapper{
+    cursor: pointer;
+}

@@ -1,0 +1,9 @@
+.reviewhomework-wrap{
+    display: flex;
+    margin-top:20px;
+    justify-content: space-around;
+}
+
+.reviewhomework-wrap textarea{
+    width: 80%;
+}

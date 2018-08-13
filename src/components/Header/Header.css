@@ -1,0 +1,35 @@
+
+
+
+  .ant-layout-header{
+    background: #001529;
+    padding: 0 50px;
+    height: 64px;
+    line-height: 64px;
+    align-items: center;
+    display: flex;
+  }
+
+  .ant-layout-header a{
+    color: white;
+  }
+  
+  .header-logo {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    float: left;
+    color: white;
+    padding-right: 100px;
+    margin-right: 50px;
+    border-right: 1px solid white;
+    }
+
+  .ant-layout{
+    display: flex;
+  }
+
+  
+

@@ -1,0 +1,27 @@
+.handleresult-top{
+    display:flex;
+    border-bottom:1px solid #bbb4b4;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+.handleresult-wrap{
+    width: 40%;
+    border-right: 1px solid #bbb4b4;
+}
+
+.handleresult-top button{
+    margin-top:0px; 
+}
+
+
+.handleresult-bottom button{
+    margin: 5px 30px;
+}
+
+.handleresult-bottom{
+    flex-wrap: wrap;
+display: flex;
+justify-content: flex-start;
+}
+
