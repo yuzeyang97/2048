@@ -2,34 +2,57 @@ import { Button } from 'antd';
 import React, { Component } from 'react';
 import './ButtonWrap.css';
 export default class ButtonWrap extends Component {
-    onClick=()=>{
-        const {person,currentView,type,Actions}=this.props
-        if(type!='result'){
-            const data={
-                type:currentView,
-                id:person.mid
+    onClick = () => {
+        const { person, type, Actions,selectList,deleteSelectList } = this.props
+        if (type != 'result') {
+            const data = person.mid
+            const flag=selectList.indexOf(data)
+            if (flag == -1) {
+                Actions.addselect(data)
             }
-            Actions.deleteflag(true)
-            Actions.addperson(data)
+            else {
+                Actions.deleteselect(data)
+            }
+        }
+        if (type == 'result') {
+            const data = person.mid
+            const flag=deleteSelectList.indexOf(data)
+            if (flag == -1) {
+                Actions.addDeleteselect(data)
+            }
+            else {
+                Actions.deleteDeleteselect(data)
+            }
         }
     }
-    deleteperson=()=>{
-        const {person,currentView,type,Actions}=this.props
-        if(type=='result'){
-            const data={
-                type:currentView,
-                id:person.mid
+    getclass=()=>{
+        const { person, type, Actions,selectList,deleteSelectList } = this.props
+        if (type != 'result') {
+            const data = person.mid
+            const flag=selectList.indexOf(data)
+            if (flag == -1) {
+               return ''
             }
-            Actions.deleteperson(data)
+            else {
+                return 'primary'
+            }
+        }
+        if (type == 'result') {
+            const data = person.mid
+            const flag=deleteSelectList.indexOf(data)
+            if (flag == -1) {
+                return ''
+            }
+            else {
+                return 'primary'
         }
     }
+}
     render() {
-        const {person,currentView,type,deleteflag}=this.props
-        console.log(deleteflag,22222222222222)
+        const { person, currentView, type,selectList,deleteSelectList} = this.props
         return (
             <div className='buttonwrap' onClick={this.onClick}>
-                <Button disabled={person[currentView]==1&&type!='result'}><span>{person.name}</span> mid: {person.mid}</Button>
-                {deleteflag&&type=='result'?<div className='deletebtn' onClick={this.deleteperson}>X</div>:''}
+                <Button disabled={person[currentView] == 1 && type != 'result'} type={this.getclass()}><span>{person.name}</span> mid: {person.mid}</Button>
             </div>
         )
     }

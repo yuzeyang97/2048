@@ -11,7 +11,8 @@ const initialState = {
     configFlag:true,
     filterHandleResult:'',
     filterHandleLoad:'',
-    deleteflag:false
+    selectList:[],
+    deleteSelectList:[]
 }
 
 const reducer = (state = initialState, action) => {
@@ -33,18 +34,40 @@ const reducer = (state = initialState, action) => {
         }
         case `${ActionTypes.ADD_PERSON}`: {
             const newState={...state}
-            newState.result[action.data.type].person.push(action.data.id)
+            newState.result[action.data.currentView].person=newState.result[action.data.currentView].person.concat(newState.selectList)
+            newState.selectList=[]
             return newState
         }
         case `${ActionTypes.DELETE_PERSON}`: {
             const newState={...state}
-            const index=newState.result[action.data.type].person.indexOf(action.data.id)
-            newState.result[action.data.type].person.splice(index,1)
+            console.log(action.data)
+            newState.deleteSelectList.map(item=>{
+               const index= newState.result[action.data.currentView].person.indexOf(item)
+               newState.result[action.data.currentView].person.splice(index,1)
+            })
+            newState.deleteSelectList=[]
             return newState
         }
-        case `${ActionTypes.DELETE_FLAG}`: {
+        case `${ActionTypes.ADD_SELECT}`: {
             const newState={...state}
-            newState.deleteflag=action.data
+            newState.selectList.push(action.data)
+            return newState
+        }
+        case `${ActionTypes.DELETE_SELECT}`: {
+            const newState={...state}
+            const index=newState.selectList.indexOf(action.data)
+            newState.selectList.splice(index,1)
+            return newState
+        }
+        case `${ActionTypes.ADD_DELETE_SELECT}`: {
+            const newState={...state}
+            newState.deleteSelectList.push(action.data)
+            return newState
+        }
+        case `${ActionTypes.DELETE_DELETE_SELECT}`: {
+            const newState={...state}
+            const index=newState.deleteSelectList.indexOf(action.data)
+            newState.deleteSelectList.splice(index,1)
             return newState
         }
         default:

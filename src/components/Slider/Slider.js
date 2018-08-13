@@ -8,6 +8,8 @@ export default class Header extends Component {
         {window.location.href='/'}
         if(e.key==2)
         {window.location.href='/homeworkReview/1001'}
+        if(e.key==3)
+        {window.location.href='/userConfig'}
       }
     
     render() {
@@ -22,6 +24,7 @@ export default class Header extends Component {
                     <SubMenu key="sub1" title={<span><Icon type="user" />TIA</span>}>
                         <Menu.Item key="1">学员档案</Menu.Item>
                         <Menu.Item key="2">作业点评</Menu.Item>
+                        <Menu.Item key="3">权限配置</Menu.Item>
                     </SubMenu>
                 </Menu>
             </Sider>

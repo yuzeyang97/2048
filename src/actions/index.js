@@ -255,13 +255,38 @@ export function deleteperson(data) {
   }
 }
 
-// 删除
-export function deleteflag(data) {
+// 添加选项
+export function addselect(data) {
   return {
-    type: ActionTypes.DELETE_FLAG,
+    type: ActionTypes.ADD_SELECT,
     data
   }
 }
+
+// 去除选项
+export function deleteselect(data) {
+  return {
+    type: ActionTypes.DELETE_SELECT,
+    data
+  }
+}
+
+// 添加选项
+export function addDeleteselect(data) {
+  return {
+    type: ActionTypes.ADD_DELETE_SELECT,
+    data
+  }
+}
+
+// 去除选项
+export function deleteDeleteselect(data) {
+  return {
+    type: ActionTypes.DELETE_DELETE_SELECT,
+    data
+  }
+}
+
 
 
 

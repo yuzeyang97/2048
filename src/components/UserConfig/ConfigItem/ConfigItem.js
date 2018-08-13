@@ -7,7 +7,6 @@ export default class ConfigItem extends Component {
         Actions.filterHandleResult('')
         Actions.filterHandleLoad('')
         Actions.showConfig(true)
-        Actions.deleteflag(false)
         Actions.changeCurrentView(item.type)
     }
     render() {

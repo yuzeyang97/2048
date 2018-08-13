@@ -176,11 +176,20 @@ function person(state = {
 }, action) {
     switch (action.type) {
         case `${ActionTypes.ADD_PERSON}`: {
+            const newState={...state}
             console.log(action.data)
-            return { ...state, [action.data.id]:{...state[action.data.id],[action.data.type]:1} }
+            action.data.selectList.map((item)=>{
+                newState[item][action.data.currentView]=1
+            })
+            return newState
         }
         case `${ActionTypes.DELETE_PERSON}`: {
-            return { ...state, [action.data.id]:{...state[action.data.id],[action.data.type]:0} }
+            const newState={...state}
+            console.log(action.data)
+            action.data.deleteSelectList.map((item)=>{
+                newState[item][action.data.currentView]=0
+            })
+            return newState
         }
         default:
             return state

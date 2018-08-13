@@ -6,13 +6,14 @@ import HandleLoad from '../HandleLoad/HandleLoad.js'
 import HandleTree from '../HandleTree/HandleTree.js'
 import { Button } from 'antd';
 export default class ConfigContent extends Component {
-    showConfig=()=>{
-        const {Actions}=this.props
-        Actions.showConfig(false)
-    }
-    deleteflag=()=>{
-        const {Actions}=this.props
-        Actions.deleteflag(false)
+    addperson=()=>{
+        const {Actions,entities,userConfig}=this.props
+        const { currentView ,selectList} = userConfig
+        const data={
+            currentView,
+            selectList
+        }
+        Actions.addperson(data)
     }
     render() {
         const { entities, userConfig, Actions } = this.props
@@ -23,7 +24,6 @@ export default class ConfigContent extends Component {
                     <div>
                         {result[currentView].title}:{result[currentView].description}
                     </div>
-                    <div onClick={this.showConfig} className='closeconfig-btn'>X</div>
                 </div>
                 <div className='configcontent-content'>
                     <HandleResult entities={entities} userConfig={userConfig} Actions={Actions}/>
@@ -31,7 +31,7 @@ export default class ConfigContent extends Component {
                     <HandleLoad entities={entities} userConfig={userConfig} Actions={Actions}/>
                 </div>
                 <div className='configcontent-foot'>
-                    <Button onClick={this.deleteflag}>确认</Button>
+                    <Button onClick={this.addperson}>确认</Button>
                 </div>
             </div>
         )
