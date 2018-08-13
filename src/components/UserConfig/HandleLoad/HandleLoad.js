@@ -23,6 +23,7 @@ export default class HandleLoad extends Component {
             return <ButtonWrap person={person1} currentView={currentView} Actions={Actions}/>
         }
         else {
+            if(group[currentSelect])
             return group[currentSelect].person.map((item) => {
                 const person1={
                     name:person[item].name,

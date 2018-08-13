@@ -9,6 +9,7 @@ export default class ButtonWrap extends Component {
                 type:currentView,
                 id:person.mid
             }
+            Actions.deleteflag(true)
             Actions.addperson(data)
         }
     }

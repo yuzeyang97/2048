@@ -7,6 +7,7 @@ const TreeNode = Tree.TreeNode;
 
 export default class HandleTree extends Component {
     onSelect = (selectedKeys, info) => {
+        console.log(selectedKeys,info)
         const {Actions}=this.props;
         Actions.filterHandleLoad('')
         Actions.changeCurrentSelect(Number(selectedKeys[0]))
