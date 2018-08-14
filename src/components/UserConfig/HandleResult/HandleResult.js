@@ -11,9 +11,9 @@ export default class HandleResult extends Component {
     renderBtn = () => {
         const { entities, userConfig, Actions } = this.props
         const { person } = entities
-        const { currentView, result, filterHandleResult, selectList, deleteSelectList } = userConfig
+        const { powerType, result, filterHandleResult, selectList, deleteSelectList } = userConfig
         const filterHandleResultNum = Number(filterHandleResult)
-        if (filterHandleResultNum != '' && result[currentView].person.indexOf(filterHandleResultNum) != -1) {
+        if (filterHandleResultNum != '' && result[powerType].person.indexOf(filterHandleResultNum) != -1) {
             const person1 = {
                 name: person[filterHandleResultNum].name,
                 mid: person[filterHandleResultNum].mid,
@@ -22,14 +22,14 @@ export default class HandleResult extends Component {
             }
             return <ButtonWrap
                 person={person1}
-                currentView={currentView}
+                powerType={powerType}
                 type='result'
                 Actions={Actions}
                 selectList={selectList}
                 deleteSelectList={deleteSelectList} />
         }
         else {
-            return result[currentView].person.map((item) => {
+            return result[powerType].person.map((item) => {
                 const person1 = {
                     name: person[item].name,
                     mid: person[item].mid,
@@ -38,7 +38,7 @@ export default class HandleResult extends Component {
                 }
                 return <ButtonWrap
                     person={person1}
-                    currentView={currentView}
+                    powerType={powerType}
                     type='result'
                     Actions={Actions}
                     selectList={selectList}
@@ -48,9 +48,9 @@ export default class HandleResult extends Component {
     }
     deleteperson = () => {
         const { Actions, entities, userConfig } = this.props
-        const { currentView, deleteSelectList } = userConfig
+        const { powerType, deleteSelectList } = userConfig
         const data = {
-            currentView,
+            powerType,
             deleteSelectList
         }
         Actions.deleteperson(data)

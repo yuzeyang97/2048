@@ -10,7 +10,7 @@ export default class HandleLoad extends Component {
     }
     renderBtn = () => {
         const { entities, userConfig,Actions } = this.props
-        const { currentSelect, filterHandleLoad,currentView,selectList,deleteSelectList } = userConfig
+        const { currentSelect, filterHandleLoad,powerType,selectList,deleteSelectList } = userConfig
         const {person,bloc} =entities
         const filterHandleLoadNum = Number(filterHandleLoad)
         if (filterHandleLoadNum != '' && bloc[currentSelect].person.indexOf(filterHandleLoadNum) != -1) {
@@ -22,7 +22,7 @@ export default class HandleLoad extends Component {
             }
             return <ButtonWrap 
             person={person1} 
-            currentView={currentView} 
+            powerType={powerType} 
             Actions={Actions} 
             selectList={selectList}
             deleteSelectList={deleteSelectList}/>
@@ -39,7 +39,7 @@ export default class HandleLoad extends Component {
                 }
                 return <ButtonWrap 
                 person={person1} 
-                currentView={currentView} 
+                powerType={powerType} 
                 Actions={Actions}
                 selectList={selectList}
             deleteSelectList={deleteSelectList}/>

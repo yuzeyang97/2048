@@ -50,11 +50,11 @@ export default class ButtonWrap extends Component {
     }
 }
     render() {
-        const { person, currentView, type} = this.props
+        const { person, powerType, type} = this.props
         return (
             <div className='buttonwrap' onClick={this.onClick}>
                 <Button
-                disabled={person[currentView] == 1 && type != 'result'}
+                disabled={person[powerType] == 1 && type != 'result'}
                 type={this.getclass()}>
                 <span>{person.name}</span> mid: {person.mid}
                 </Button>

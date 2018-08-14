@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 import './ConfigContent.css'
 import HandleResult from '../HandleResult/HandleResult.js'
 import HandleLoad from '../HandleLoad/HandleLoad.js'
-import HandleTree from '../HandleTree/HandleTree.js'
+import DepartmentTree from '../DepartmentTree/DepartmentTree.js'
 import { Button } from 'antd';
 export default class ConfigContent extends Component {
     addperson=()=>{
         const {Actions,entities,userConfig}=this.props
-        const { currentView ,selectList} = userConfig
+        const { powerType ,selectList} = userConfig
         const data={
-            currentView,
+            powerType,
             selectList
         }
         Actions.filterHandleLoad('')
@@ -23,12 +23,12 @@ export default class ConfigContent extends Component {
     }
     render() {
         const { entities, userConfig, Actions } = this.props
-        const { currentView, result } = userConfig
+        const { powerType, result } = userConfig
         return (
             <div className='configcontent-wrap'>
                 <div className='configcontent-head'>
                     <div>
-                        {result[currentView].title}:{result[currentView].description}
+                        {result[powerType].title}:{result[powerType].description}
                     </div>
                     <div onClick={this.closeConfig} className='closeCofig-btn'>
                         X
@@ -36,7 +36,7 @@ export default class ConfigContent extends Component {
                 </div>
                 <div className='configcontent-content'>
                     <HandleResult entities={entities} userConfig={userConfig} Actions={Actions}/>
-                    <HandleTree entities={entities} userConfig={userConfig} Actions={Actions}/>
+                    <DepartmentTree entities={entities} userConfig={userConfig} Actions={Actions}/>
                     <HandleLoad entities={entities} userConfig={userConfig} Actions={Actions}/>
                 </div>
                 <div className='configcontent-foot'>

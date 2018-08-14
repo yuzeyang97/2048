@@ -1,11 +1,11 @@
 import { Tree } from 'antd';
 import React, { Component } from 'react';
-import './HandleTree.css'
+import './DepartmentTree.css'
 
 
 const TreeNode = Tree.TreeNode;
 
-export default class HandleTree extends Component {
+export default class DepartmentTree extends Component {
     onSelect = (selectedKeys, info) => {
         console.log(selectedKeys,info)
         const {Actions}=this.props;
@@ -30,7 +30,7 @@ export default class HandleTree extends Component {
         const {bloc}=entities
         const tree=this.renderDepTree(blocResult,bloc)
         return (
-            <div className='handletree-wrap'>
+            <div className='departmenttree-wrap'>
                 <Tree
                     showLine
                     defaultExpandedKeys={['100001']}

@@ -2,12 +2,12 @@ import { Button } from 'antd';
 import React, { Component } from 'react';
 import './ConfigItem.css'
 export default class ConfigItem extends Component {
-    changeCurrentView=()=>{
+    changePowerType=()=>{
         const {Actions,item}=this.props
         Actions.filterHandleResult('')
         Actions.filterHandleLoad('')
         Actions.showConfig(true)
-        Actions.changeCurrentView(item.type)
+        Actions.changePowerType(item.type)
     }
     render() {
         const {  item } = this.props
@@ -18,7 +18,7 @@ export default class ConfigItem extends Component {
                 </div>
 
                 <div className='configitem-right'>
-                    <Button onClick={this.changeCurrentView}>权限管理</Button>
+                    <Button onClick={this.changePowerType}>权限管理</Button>
                 </div>
             </div>
         )

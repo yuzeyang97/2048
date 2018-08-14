@@ -156,7 +156,7 @@ function person(state = {
             const newState={...state}
             console.log(action.data)
             action.data.selectList.map((item)=>{
-                newState[item][action.data.currentView]=1
+                newState[item][action.data.powerType]=1
             })
             return newState
         }
@@ -164,7 +164,7 @@ function person(state = {
             const newState={...state}
             console.log(action.data)
             action.data.deleteSelectList.map((item)=>{
-                newState[item][action.data.currentView]=0
+                newState[item][action.data.powerType]=0
             })
             return newState
         }

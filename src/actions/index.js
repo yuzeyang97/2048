@@ -208,9 +208,9 @@ export function changeCurrentSelect(data) {
 }
 
 // 改变当前权限Tab
-export function changeCurrentView(data) {
+export function changePowerType(data) {
   return {
-    type: ActionTypes.CHANGE_CURRENT_VIEW,
+    type: ActionTypes.CHANGE_POWER_TYPE,
     data
   }
 }

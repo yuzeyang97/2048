@@ -6,7 +6,7 @@ const initialState = {
         comment: {type:'comment', title:'点评作业',description:'拥有个人点评页 可以为学生作业进行点评',person:[1000001, 1000005, 1000003]},
         substitute:{type:'substitute',title:'代课老师',description:'拥有审核点评老师点评内容的权限,包括撤回点评,自行点评',person:[1000002, 1000004, 1000006]}
     },
-    currentView: 'comment',
+    powerType: 'comment',
     currentSelect:100003,
     configFlag:true,
     filterHandleResult:'',
@@ -19,8 +19,8 @@ const reducer = (state = initialState, action) => {
         case `${ActionTypes.CHANGE_CURRENT_SELECT}`: {
             return {...state,currentSelect:action.data}
         }
-        case `${ActionTypes.CHANGE_CURRENT_VIEW}`: {
-            return {...state,currentView:action.data}
+        case `${ActionTypes.CHANGE_POWER_TYPE}`: {
+            return {...state,powerType:action.data}
         }
         case `${ActionTypes.SHOW_CONFIG}`: {
             return {...state,configFlag:action.data}
@@ -33,7 +33,7 @@ const reducer = (state = initialState, action) => {
         }
         case `${ActionTypes.ADD_PERSON}`: {
             const newState={...state}
-            newState.result[action.data.currentView].person=newState.result[action.data.currentView].person.concat(newState.selectList)
+            newState.result[action.data.powerType].person=newState.result[action.data.powerType].person.concat(newState.selectList)
             newState.selectList=[]
             return newState
         }
@@ -41,8 +41,8 @@ const reducer = (state = initialState, action) => {
             const newState={...state}
             console.log(action.data)
             newState.deleteSelectList.map(item=>{
-               const index= newState.result[action.data.currentView].person.indexOf(item)
-               newState.result[action.data.currentView].person.splice(index,1)
+               const index= newState.result[action.data.powerType].person.indexOf(item)
+               newState.result[action.data.powerType].person.splice(index,1)
             })
             newState.deleteSelectList=[]
             return newState
