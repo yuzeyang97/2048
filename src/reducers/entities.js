@@ -126,37 +126,14 @@ function teacherInfo(state = {}, action) {
 }
 // userConfig
 function bloc(state = {
-    101: { id:101,name: '爱奇迪集团', office: [1001] }
-}, action) {
-    switch (action.type) {
-        default:
-            return state
-    }
-}
-
-function office(state = {
-    1001: { id:1001,name: '广州分公司', department: [10001, 10002, 10003, 10004] }
-}, action) {
-    switch (action.type) {
-        default:
-            return state
-    }
-}
-
-function department(state = {
-    10001: { id:10001,name: '总经办' },
-    10002: { id:10002,name: '财务部' },
-    10003: { id:10003,name: '工程部' },
-    10004: { id:10004,name: '产品研发部', group: [100001, 100002, 100003] },
-}, action) {
-    switch (action.type) {
-        default:
-            return state
-    }
-}
-
-function group(state = {
-    100001: { id:100001,name: '开发一组', person: [1000001, 1000002, 1000003,1000006,1000005] },
+    1: { id:1,name: '所有部门', bloc: [101],person: [1000001, 1000002, 1000003,1000006,1000005,1000004] },
+    101: { id:101,name: '爱奇迪集团', bloc: [1001],person: [1000001, 1000002, 1000003,1000006,1000005,1000004] },
+    1001: { id:1001,name: '广州分公司', bloc: [10001, 10002, 10003, 10004],person: [1000001, 1000002, 1000003,1000006,1000005,1000004] },
+    10001: { id:10001,name: '总经办'},
+    10002: { id:10002,name: '财务部'},
+    10003: { id:10003,name: '工程部'},
+    10004: { id:10004,name: '产品研发部', bloc: [100001, 100002, 100003],person: [1000001, 1000002, 1000003,1000006,1000005,1000004] },
+    100001: { id:100001,name: '开发一组', person: [1000001, 1000002, 1000005] },
     100002: { id:100002,name: '开发二组', person: [1000001, 1000005, 1000006] },
     100003: { id:100003,name: '测试组', person: [1000001, 1000004, 1000003] },
 }, action) {
@@ -202,8 +179,5 @@ export default combineReducers({
     comments,
     teacherInfo,
     bloc,
-    office,
-    department,
-    group,
     person
 })

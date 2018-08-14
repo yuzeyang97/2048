@@ -10,15 +10,15 @@ export default class HandleResult extends Component {
     }
     renderBtn = () => {
         const { entities, userConfig, Actions } = this.props
-        let { currentView, result, filterHandleResult, selectList, deleteSelectList } = userConfig
         const { person } = entities
-        filterHandleResult = Number(filterHandleResult)
-        if (filterHandleResult != '' && result[currentView].person.indexOf(filterHandleResult) != -1) {
+        const { currentView, result, filterHandleResult, selectList, deleteSelectList } = userConfig
+        const filterHandleResultNum = Number(filterHandleResult)
+        if (filterHandleResultNum != '' && result[currentView].person.indexOf(filterHandleResultNum) != -1) {
             const person1 = {
-                name: person[filterHandleResult].name,
-                mid: person[filterHandleResult].mid,
-                substitute: person[filterHandleResult].substitute,
-                comment: person[filterHandleResult].comment,
+                name: person[filterHandleResultNum].name,
+                mid: person[filterHandleResultNum].mid,
+                substitute: person[filterHandleResultNum].substitute,
+                comment: person[filterHandleResultNum].comment,
             }
             return <ButtonWrap
                 person={person1}

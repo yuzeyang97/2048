@@ -10,15 +10,15 @@ export default class HandleLoad extends Component {
     }
     renderBtn = () => {
         const { entities, userConfig,Actions } = this.props
-        let { currentSelect, filterHandleLoad,currentView,selectList,deleteSelectList } = userConfig
-        const { person,group } = entities
-        filterHandleLoad=Number(filterHandleLoad)
-        if (filterHandleLoad != '' && group[currentSelect].person.indexOf(filterHandleLoad) != -1) {
+        const { currentSelect, filterHandleLoad,currentView,selectList,deleteSelectList } = userConfig
+        const {person,bloc} =entities
+        const filterHandleLoadNum = Number(filterHandleLoad)
+        if (filterHandleLoadNum != '' && bloc[currentSelect].person.indexOf(filterHandleLoadNum) != -1) {
             const person1={
-                name:person[filterHandleLoad].name,
-                mid:person[filterHandleLoad].mid,
-                substitute:person[filterHandleLoad].substitute,
-                comment:person[filterHandleLoad].comment,
+                name:person[filterHandleLoadNum].name,
+                mid:person[filterHandleLoadNum].mid,
+                substitute:person[filterHandleLoadNum].substitute,
+                comment:person[filterHandleLoadNum].comment,
             }
             return <ButtonWrap 
             person={person1} 
@@ -28,8 +28,9 @@ export default class HandleLoad extends Component {
             deleteSelectList={deleteSelectList}/>
         }
         else {
-            if(group[currentSelect])
-            return group[currentSelect].person.map((item) => {
+            if(bloc[currentSelect]){
+            if(bloc[currentSelect].person)
+            return bloc[currentSelect].person.map((item) => {
                 const person1={
                     name:person[item].name,
                     mid:person[item].mid,
@@ -43,6 +44,7 @@ export default class HandleLoad extends Component {
                 selectList={selectList}
             deleteSelectList={deleteSelectList}/>
             })
+        }
         }
     }
     render() {

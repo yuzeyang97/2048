@@ -17,6 +17,10 @@ export default class ConfigContent extends Component {
         Actions.filterHandleResult('')
         Actions.addperson(data)
     }
+    closeConfig=()=>{
+        const {Actions}=this.props;
+        Actions.showConfig(false)
+    }
     render() {
         const { entities, userConfig, Actions } = this.props
         const { currentView, result } = userConfig
@@ -25,6 +29,9 @@ export default class ConfigContent extends Component {
                 <div className='configcontent-head'>
                     <div>
                         {result[currentView].title}:{result[currentView].description}
+                    </div>
+                    <div onClick={this.closeConfig} className='closeCofig-btn'>
+                        X
                     </div>
                 </div>
                 <div className='configcontent-content'>

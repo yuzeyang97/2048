@@ -21,6 +21,7 @@ export default class ButtonWrap extends Component {
                 Actions.addDeleteselect(data)
             }
             else {
+                console.log(1111111111)
                 Actions.deleteDeleteselect(data)
             }
         }

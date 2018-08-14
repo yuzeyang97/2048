@@ -25,8 +25,8 @@ const { Content } = Layout;
   }
 
   function mapStateToProps(state) {
-    const props = { ...state };
-    return props;
+    const {entities,userConfig}= state;
+    return {entities,userConfig};
   }
   
   const mapDispatchToProps = dispatch => {

@@ -1,7 +1,7 @@
 import * as ActionTypes from '../const/ActionTypes';
 
 const initialState = {
-    blocResult: [101],
+    blocResult: [1],
     result: {
         comment: {type:'comment', title:'点评作业',description:'拥有个人点评页 可以为学生作业进行点评',person:[1000001, 1000005, 1000003]},
         substitute:{type:'substitute',title:'代课老师',description:'拥有审核点评老师点评内容的权限,包括撤回点评,自行点评',person:[1000002, 1000004, 1000006]}
