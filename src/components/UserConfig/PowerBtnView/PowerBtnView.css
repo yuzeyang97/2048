@@ -1,25 +1,25 @@
-.handleresult-top{
+.powerbtnview-top{
     display:flex;
     border-bottom:1px solid #bbb4b4;
     padding-right: 10px;
     margin-bottom: 10px;
 }
 
-.handleresult-wrap{
+.powerbtnview-wrap{
     width: 40%;
     border-right: 1px solid #bbb4b4;
 }
 
-.handleresult-top button{
+.powerbtnview-top button{
     margin-top:0px; 
 }
 
 
-.handleresult-bottom button{
+.powerbtnview-bottom button{
     margin: 5px 30px;
 }
 
-.handleresult-bottom{
+.powerbtnview-bottom{
     flex-wrap: wrap;
 display: flex;
 justify-content: flex-start;

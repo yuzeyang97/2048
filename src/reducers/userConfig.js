@@ -9,8 +9,8 @@ const initialState = {
     powerType: 'comment',
     currentSelect:100003,
     configFlag:true,
-    filterHandleResult:'',
-    filterHandleLoad:'',
+    filterPowerBtnView:'',
+    filterEmployeeBtnView:'',
     selectList:[],
     deleteSelectList:[]
 }
@@ -25,11 +25,11 @@ const reducer = (state = initialState, action) => {
         case `${ActionTypes.SHOW_CONFIG}`: {
             return {...state,configFlag:action.data}
         }
-        case `${ActionTypes.FILTER_HANDLE_RESULT}`: {
-            return {...state,filterHandleResult:action.data}
+        case `${ActionTypes.FILTER_POWER_BTNVIEW}`: {
+            return {...state,filterPowerBtnView:action.data}
         }
-        case `${ActionTypes.FILTER_HANDLE_LOAD}`: {
-            return {...state,filterHandleLoad:action.data}
+        case `${ActionTypes.FILTER_EMPLOYEE_BTNVIEW}`: {
+            return {...state,filterEmployeeBtnView:action.data}
         }
         case `${ActionTypes.ADD_PERSON}`: {
             const newState={...state}

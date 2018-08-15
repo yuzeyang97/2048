@@ -1,24 +1,24 @@
 import { Button } from 'antd';
 import React, { Component } from 'react';
-import './HandleResult.css'
+import './PowerBtnView.css'
 import SearchWrap from '../searchWrap/searchWrap.js'
 import ButtonWrap from '../ButtonWrap/ButtonWrap.js'
-export default class HandleResult extends Component {
+export default class PowerBtnView extends Component {
     search = (data) => {
         const { Actions } = this.props
-        Actions.filterHandleResult(data)
+        Actions.filterPowerBtnView(data)
     }
     renderBtn = () => {
         const { entities, userConfig, Actions } = this.props
         const { person } = entities
-        const { powerType, result, filterHandleResult, selectList, deleteSelectList } = userConfig
-        const filterHandleResultNum = Number(filterHandleResult)
-        if (filterHandleResultNum != '' && result[powerType].person.indexOf(filterHandleResultNum) != -1) {
+        const { powerType, result, filterPowerBtnView, selectList, deleteSelectList } = userConfig
+        const filterPowerBtnViewNum = Number(filterPowerBtnView)
+        if (filterPowerBtnViewNum != '' && result[powerType].person.indexOf(filterPowerBtnViewNum) != -1) {
             const person1 = {
-                name: person[filterHandleResultNum].name,
-                mid: person[filterHandleResultNum].mid,
-                substitute: person[filterHandleResultNum].substitute,
-                comment: person[filterHandleResultNum].comment,
+                name: person[filterPowerBtnViewNum].name,
+                mid: person[filterPowerBtnViewNum].mid,
+                substitute: person[filterPowerBtnViewNum].substitute,
+                comment: person[filterPowerBtnViewNum].comment,
             }
             return <ButtonWrap
                 person={person1}
@@ -58,11 +58,11 @@ export default class HandleResult extends Component {
     render() {
 
         return (
-            <div className='handleresult-wrap'>
-                <div className='handleresult-top'>
+            <div className='powerbtnview-wrap'>
+                <div className='powerbtnview-top'>
                     <Button onClick={this.deleteperson}>删除</Button><SearchWrap search={this.search} />
                 </div>
-                <div className='handleresult-bottom'>
+                <div className='powerbtnview-bottom'>
                     {this.renderBtn()}
                 </div>
             </div>

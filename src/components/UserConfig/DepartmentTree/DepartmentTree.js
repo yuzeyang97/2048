@@ -9,7 +9,7 @@ export default class DepartmentTree extends Component {
     onSelect = (selectedKeys, info) => {
         console.log(selectedKeys,info)
         const {Actions}=this.props;
-        Actions.filterHandleLoad('')
+        Actions.filterEmployeeBtnView('')
         Actions.changeCurrentSelect(Number(selectedKeys[0]))
       }
       renderDepTree=(rootId,entities)=>{

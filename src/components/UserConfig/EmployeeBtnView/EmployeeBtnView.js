@@ -1,24 +1,24 @@
 import { Button } from 'antd';
 import React, { Component } from 'react';
-import './HandleLoad.css';
+import './EmployeeBtnView.css';
 import SearchWrap from'../searchWrap/searchWrap.js'
 import ButtonWrap from '../ButtonWrap/ButtonWrap.js'
-export default class HandleLoad extends Component {
+export default class EmployeeBtnView extends Component {
     search=(data)=>{
         const { Actions } = this.props
-        Actions.filterHandleLoad(data)
+        Actions.filterEmployeeBtnView(data)
     }
     renderBtn = () => {
         const { entities, userConfig,Actions } = this.props
-        const { currentSelect, filterHandleLoad,powerType,selectList,deleteSelectList } = userConfig
+        const { currentSelect, filterEmployeeBtnView,powerType,selectList,deleteSelectList } = userConfig
         const {person,bloc} =entities
-        const filterHandleLoadNum = Number(filterHandleLoad)
-        if (filterHandleLoadNum != '' && bloc[currentSelect].person.indexOf(filterHandleLoadNum) != -1) {
+        const filterEmployeeBtnViewNum = Number(filterEmployeeBtnView)
+        if (filterEmployeeBtnViewNum != '' && bloc[currentSelect].person.indexOf(filterEmployeeBtnViewNum) != -1) {
             const person1={
-                name:person[filterHandleLoadNum].name,
-                mid:person[filterHandleLoadNum].mid,
-                substitute:person[filterHandleLoadNum].substitute,
-                comment:person[filterHandleLoadNum].comment,
+                name:person[filterEmployeeBtnViewNum].name,
+                mid:person[filterEmployeeBtnViewNum].mid,
+                substitute:person[filterEmployeeBtnViewNum].substitute,
+                comment:person[filterEmployeeBtnViewNum].comment,
             }
             return <ButtonWrap 
             person={person1} 
@@ -49,12 +49,12 @@ export default class HandleLoad extends Component {
     }
     render() {
         return (
-            <div className='handleload-wrap'>
-                <div className='handleload-top'>
+            <div className='employeebtnview-wrap'>
+                <div className='employeebtnview-top'>
                    <SearchWrap search={this.search}/>
                 </div>
 
-                <div className='handleload-bottom'>
+                <div className='employeebtnview-bottom'>
                    {this.renderBtn()}
                 </div>
             </div>

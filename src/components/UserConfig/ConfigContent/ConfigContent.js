@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
 import './ConfigContent.css'
-import HandleResult from '../HandleResult/HandleResult.js'
-import HandleLoad from '../HandleLoad/HandleLoad.js'
+import PowerBtnView from '../PowerBtnView/PowerBtnView.js'
+import EmployeeBtnView from '../EmployeeBtnView/EmployeeBtnView.js'
 import DepartmentTree from '../DepartmentTree/DepartmentTree.js'
 import { Button } from 'antd';
 export default class ConfigContent extends Component {
@@ -13,8 +13,8 @@ export default class ConfigContent extends Component {
             powerType,
             selectList
         }
-        Actions.filterHandleLoad('')
-        Actions.filterHandleResult('')
+        Actions.filterEmployeeBtnView('')
+        Actions.filterPowerBtnView('')
         Actions.addperson(data)
     }
     closeConfig=()=>{
@@ -35,9 +35,9 @@ export default class ConfigContent extends Component {
                     </div>
                 </div>
                 <div className='configcontent-content'>
-                    <HandleResult entities={entities} userConfig={userConfig} Actions={Actions}/>
+                    <PowerBtnView entities={entities} userConfig={userConfig} Actions={Actions}/>
                     <DepartmentTree entities={entities} userConfig={userConfig} Actions={Actions}/>
-                    <HandleLoad entities={entities} userConfig={userConfig} Actions={Actions}/>
+                    <EmployeeBtnView entities={entities} userConfig={userConfig} Actions={Actions}/>
                 </div>
                 <div className='configcontent-foot'>
                     <Button onClick={this.addperson}>确认</Button>

@@ -224,16 +224,16 @@ export function showConfig(data) {
 }
 
 // 搜索mid
-export function filterHandleResult(data) {
+export function filterPowerBtnView(data) {
   return {
-    type: ActionTypes.FILTER_HANDLE_RESULT,
+    type: ActionTypes.FILTER_POWER_BTNVIEW,
     data
   }
 }
 // 搜索mid
-export function filterHandleLoad(data) {
+export function filterEmployeeBtnView(data) {
   return {
-    type: ActionTypes.FILTER_HANDLE_LOAD,
+    type: ActionTypes.FILTER_EMPLOYEE_BTNVIEW,
     data
   }
 }

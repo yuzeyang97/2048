@@ -4,8 +4,8 @@ import './ConfigItem.css'
 export default class ConfigItem extends Component {
     changePowerType=()=>{
         const {Actions,item}=this.props
-        Actions.filterHandleResult('')
-        Actions.filterHandleLoad('')
+        Actions.filterPowerBtnView('')
+        Actions.filterEmployeeBtnView('')
         Actions.showConfig(true)
         Actions.changePowerType(item.type)
     }

@@ -1,22 +1,22 @@
-.handleload-top{
+.employeebtnview-top{
     display:flex;
     border-bottom:1px solid #bbb4b4;
     padding-right: 10px;
     margin-bottom: 10px;
 }
 
-.handleload-wrap{
+.employeebtnview-wrap{
     width: 40%;
     border-left: 1px solid #bbb4b4;
 }
 
-.handleload-bottom{
+.employeebtnview-bottom{
     flex-wrap: wrap;
     display: flex;
     justify-content: flex-start;
 }
 
-.handleload-bottom button{
+.employeebtnview-bottom button{
     margin: 5px 30px;
 }
 
