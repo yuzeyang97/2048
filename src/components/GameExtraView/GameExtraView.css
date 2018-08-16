@@ -1,0 +1,30 @@
+.gameextra{
+    display: flex;
+    margin-top:20px;
+}
+
+.gameextra-description{
+    color: rgb(105,110,94);
+    font-weight: bold;
+    width:60%;
+}
+.gameextra-btnwrap{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameextra-restartbtn{
+    cursor: pointer;
+    width: 80%;
+    height: 80%;
+    background: rgb(143,122,103);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    min-height: 50px;
+}
+

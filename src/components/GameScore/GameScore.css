@@ -1,0 +1,17 @@
+.gamescore{
+    display: flex;
+}
+
+.gamescore-title{
+    padding-right: 10px;
+    padding-top: 10px;
+    font-size: 30px;
+    color: rgb(119,110,101);
+    font-weight: bold;
+}
+
+.scorebtn-wrap{
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+}

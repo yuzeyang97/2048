@@ -1,35 +1,21 @@
-import React, { Component } from 'react';
-import routeConfig from './routes'
-import './App.css';
+import React from 'react';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './reducers'
 import { createLogger } from 'redux-logger';
-import serverApi from './middleware/serverApi.js';
-import {  Router, browserHistory } from 'react-router'
-
-
+import rootReducer from './reducers';
+import Game from './container/Game';
+import './App.css';
 
 const logger = createLogger();
-
 const store = createStore(
   rootReducer,
-  compose(
-    applyMiddleware(serverApi, logger),
-  ));
+  compose(applyMiddleware(logger))
+);
 
-
-
-export default class App extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    return (
-      <Provider store={store}>
-        <Router history={browserHistory} routes={routeConfig}/>
-      </Provider>
-    );
-  }
+export default function App() {
+  return (
+    <Provider store={store}>
+      <Game />
+    </Provider>
+  );
 }

@@ -1,0 +1,120 @@
+.gamebody{
+    flex-grow: 1;
+    background:rgb(248, 248, 236);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.gamebody-row{
+    display: flex;
+    background: rgb(187,174,158);
+}
+
+.bodybtn{
+    width:4rem;
+    height:4rem;
+    background: rgb(245,124,95);
+    border-radius: 5px;
+    margin:0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #776e65;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 330px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+    .bodybtn{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 5px;
+        background: rgb(245,124,95);
+        margin: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #776e65;
+        font-weight: bold;
+
+    }
+}
+
+.row0{
+    border-top-left-radius:5px;
+border-top-right-radius:5px;
+}
+
+.row3{
+    border-bottom-right-radius:5px;
+border-bottom-left-radius:5px;
+}
+
+.num0{
+    background: #DFD5CA;
+    color:#DFD5CA;
+    font-size: 2rem;
+}
+.num2{
+    background: #eee4da;
+    font-size: 2rem;
+}
+.num4{
+    background: #ede0c8;
+    font-size: 2rem;
+}
+.num8{
+    color: #f9f6f2;
+    background: #f2b179;
+    font-size: 2rem;
+}
+.num16{
+    color: #f9f6f2;
+    background: #f59563;
+    font-size: 2rem;
+}
+.num32{
+    color: #f9f6f2;
+    background: #f67c5f;
+    font-size: 2rem;
+}
+.num64{
+    color: #f9f6f2;
+    background: #f65e3b;
+    font-size: 2rem;
+}
+.num128{
+    color: #f9f6f2;
+    background: #edcf72;
+    font-size: 1.5rem;
+}
+.num256{
+    color: #f9f6f2;
+    background: #e6c564;
+    font-size: 1.5rem;
+}
+.num512{
+    color: #f9f6f2;
+    background: #9b8b5c;
+    font-size: 1.5rem;
+}
+.num1024{
+    color: #f9f6f2;
+    background: #3a2d05;
+    font-size: 1rem;
+}
+.num2048{
+    color: #f9f6f2;
+    background: #413207;
+    font-size: 1rem;
+}
+
+.font-wrap{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
