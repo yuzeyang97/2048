@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GameBtn from '../GameBtn/GameBtn';
 import './GameBody.css';
 
 let mx = 0;
@@ -62,7 +63,7 @@ export default class GameBody extends Component {
     const { btns } = this.props;
     const btnsList = btns.map((item, index) => (
       <div className={`gamebody-row row${index}`} key={index}>
-        {item.map((item2, index) => <div className={`bodybtn num${item2} `} key={index}>{item2}</div>)}
+        {item.map((item2, index) => <GameBtn className={`bodybtn num${item2} `} key={index} val={item2} />)}
       </div>));
     return btnsList;
   };
