@@ -4,6 +4,7 @@ import './GameScore.css';
 
 const GameScore = props => {
   const { score, bestScore, title } = props;
+  console.log(score);
   return (
     <div className="gamescore">
       <div className="gamescore-title">

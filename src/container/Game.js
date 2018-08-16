@@ -8,8 +8,9 @@ import './Game.css';
 
 const Game = props => {
   const {
-    btns, score, bestScore, title, description
+    btns, score, bestScore, title, description, Actions
   } = props;
+  console.log(props);
   return (
     <div className="game-wrap">
       <GameHead
@@ -17,8 +18,9 @@ const Game = props => {
         bestScore={bestScore}
         title={title}
         description={description}
+        Actions={Actions}
       />
-      <GameBody btns={btns} />
+      <GameBody btns={btns} Actions={Actions} />
     </div>
   );
 };
