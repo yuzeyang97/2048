@@ -8,7 +8,7 @@ import './Game.css';
 
 const Game = props => {
   const {
-    btns, score, bestScore, title, description, Actions
+    btns, score, bestScore, title, description, Actions, newBtn
   } = props;
   console.log(props);
   return (
@@ -20,7 +20,7 @@ const Game = props => {
         description={description}
         Actions={Actions}
       />
-      <GameBody btns={btns} Actions={Actions} />
+      <GameBody btns={btns} Actions={Actions} newBtn={newBtn} />
     </div>
   );
 };
@@ -28,10 +28,10 @@ const Game = props => {
 
 function mapStateToProps(state) {
   const {
-    btns, score, bestScore, title, description
+    btns, score, bestScore, title, description, newBtn
   } = { ...state };
   return {
-    btns, score, bestScore, title, description
+    btns, score, bestScore, title, description, newBtn
   };
 }
 

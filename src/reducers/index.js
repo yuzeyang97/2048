@@ -1,3 +1,4 @@
+/* eslint-disable */
 import ActionTypes from '../const/ActionTypes';
 
 const initState = {
@@ -5,7 +6,8 @@ const initState = {
   score: 0,
   bestScore: 0,
   title: '2048',
-  description: "Keypressing 'W S A D' on PC. Touch moving on Phone."
+  description: "Keypressing 'W S A D' on PC. Touch moving on Phone.",
+  newBtn:[]
 };
 
 function randomAddBtn(btnList) {
@@ -14,16 +16,17 @@ function randomAddBtn(btnList) {
   if (btnList[randomrow][randomcol] == 0) {
     const randomArr = [2, 4]
     btnList[randomrow][randomcol] = randomArr[Math.round(Math.random())];
+    return [randomrow,randomcol]
   } else {
     randomAddBtn(btnList);
   }
 }
 
 function checkStatus(btnList) {
-  let gameoverflag = true
- for (let row = 0; row < 4; row++) {
+  let gameoverflag = true;
+  for (let row = 0; row < 4; row++) {
     for (let col = 0; col < 4; col++) {
-      if (btnList[row][col] == 0)  {gameoverflag = false;}
+      if (btnList[row][col] == 0) { gameoverflag = false; }
       if (btnList[row + 1]) { if (btnList[row][col] == btnList[row + 1][col]) gameoverflag = false; }
       if (btnList[row][col + 1]) { if (btnList[row][col] == btnList[row][col + 1]) gameoverflag = false; }
       if (btnList[row - 1]) { if (btnList[row][col] == btnList[row - 1][col]) gameoverflag = false; }
@@ -32,7 +35,7 @@ function checkStatus(btnList) {
   }
   if (gameoverflag) {
     alert('游戏结束');
-    return false
+    return false;
   }
   else {
     return true
@@ -90,10 +93,10 @@ export default function (state = initState, action) {
           }
         }
       }
-      console.log(JSON.stringify(newbtns) != JSON.stringify(btns));
-      if (checkStatus(newbtns) && JSON.stringify(newbtns) != JSON.stringify(btns)) { randomAddBtn(newbtns) }
+      let newBtn
+      if (checkStatus(newbtns) && JSON.stringify(newbtns) != JSON.stringify(btns)) { newBtn=randomAddBtn(newbtns) }
       bestScore > score ? '' : bestScore = score;
-      let newState = { ...state, btns: newbtns, score, bestScore };
+      let newState = { ...state, btns: newbtns, score, bestScore,newBtn };
       return newState;
     }
     case `${ActionTypes.TOP_HANDLE}`: {
@@ -126,9 +129,10 @@ export default function (state = initState, action) {
           }
         }
       }
-      if (checkStatus(newbtns) && JSON.stringify(newbtns) != JSON.stringify(btns)) { randomAddBtn(newbtns) }
+      let newBtn;
+      if (checkStatus(newbtns) && JSON.stringify(newbtns) != JSON.stringify(btns)) { newBtn=randomAddBtn(newbtns) }
       bestScore > score ? '' : bestScore = score;
-      let newState = { ...state, btns: newbtns, score, bestScore };
+      let newState = { ...state, btns: newbtns, score, bestScore,newBtn };
       return newState;
     }
     case `${ActionTypes.LEFT_HANDLE}`: {
@@ -161,9 +165,10 @@ export default function (state = initState, action) {
           }
         }
       }
-      if (checkStatus(newbtns) && JSON.stringify(newbtns) != JSON.stringify(btns)) { randomAddBtn(newbtns) }
+      let newBtn;
+      if (checkStatus(newbtns) && JSON.stringify(newbtns) != JSON.stringify(btns)) { newBtn=randomAddBtn(newbtns) }
       bestScore > score ? '' : bestScore = score;
-      let newState = { ...state, btns: newbtns, score, bestScore };
+      let newState = { ...state, btns: newbtns, score, bestScore,newBtn };
       return newState;
     }
     case `${ActionTypes.RIGHT_HANDLE}`: {
@@ -196,9 +201,10 @@ export default function (state = initState, action) {
           }
         }
       }
-      if (checkStatus(newbtns) && JSON.stringify(newbtns) != JSON.stringify(btns)) { randomAddBtn(newbtns) }
+      let newBtn;
+      if (checkStatus(newbtns) && JSON.stringify(newbtns) != JSON.stringify(btns)) { newBtn=randomAddBtn(newbtns) }
       bestScore > score ? '' : bestScore = score;
-      let newState = { ...state, btns: newbtns, score, bestScore };
+      let newState = { ...state, btns: newbtns, score, bestScore,newBtn };
       return newState;
     }
     default:

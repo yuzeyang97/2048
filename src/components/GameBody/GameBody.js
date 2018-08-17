@@ -60,10 +60,18 @@ export default class GameBody extends Component {
     }
   };
   renderBtns = () => {
-    const { btns } = this.props;
-    const btnsList = btns.map((item, index) => (
-      <div className={`gamebody-row row${index}`} key={index}>
-        {item.map((item2, index) => <GameBtn className={`bodybtn num${item2} `} key={index} val={item2} />)}
+    const { btns, newBtn } = this.props;
+    const btnsList = btns.map((item, index1) => (
+      <div className={`gamebody-row row${index1}`} key={index1}>
+        {item.map((item2, index2) =>
+          (<GameBtn
+            className={`bodybtn num${item2} `}
+            key={index2}
+            val={item2}
+            row={index1}
+            col={index2}
+            newBtn={newBtn}
+          />))}
       </div>));
     return btnsList;
   };
