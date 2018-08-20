@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-import './ScoreBtn.css'
+import AddScoreView from '../AddScoreView/AddScoreView';
+import './ScoreBtn.css';
+
 export default class ScoreBtn extends Component {
-    constructor(props) {
-        super(props)
-    }
-    render() {
-    const {score,title} = this.props;
-        return (
-            <div className='scorebtn'>
-                <div className='scorebtn-title'>
-                    {title}
-                </div>
-                <div className='scorebtn-score'>
-                    {score}
-                </div>
-            </div>
-        );
-    }
+  taobi() { }
+  render() {
+    const { score, title, addScore } = this.props;
+    return (
+      <div className="scorebtn">
+        <div className="scorebtn-title">
+          {title}
+        </div>
+        <div className="scorebtn-score">
+          {score}
+        </div>
+        {title == 'Scores' ? <AddScoreView addScore={addScore} /> : ''}
+      </div>
+    );
+  }
 }

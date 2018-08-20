@@ -8,9 +8,8 @@ import './Game.css';
 
 const Game = props => {
   const {
-    btns, score, bestScore, title, description, Actions, newBtn
+    btns, score, bestScore, title, description, Actions, newBtn, addScore
   } = props;
-  console.log(props);
   return (
     <div className="game-wrap">
       <GameHead
@@ -19,6 +18,7 @@ const Game = props => {
         title={title}
         description={description}
         Actions={Actions}
+        addScore={addScore}
       />
       <GameBody btns={btns} Actions={Actions} newBtn={newBtn} />
     </div>
@@ -28,10 +28,10 @@ const Game = props => {
 
 function mapStateToProps(state) {
   const {
-    btns, score, bestScore, title, description, newBtn
+    btns, score, bestScore, title, description, newBtn, addScore
   } = { ...state };
   return {
-    btns, score, bestScore, title, description, newBtn
+    btns, score, bestScore, title, description, newBtn, addScore
   };
 }
 

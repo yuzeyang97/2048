@@ -1,0 +1,42 @@
+.addScore{
+  position: absolute;
+  opacity: 0;
+}
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes fadeOutUp2 {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+.addScoreActive1{
+  color: rgb(68, 0, 255);
+  position: absolute;
+  opacity: 0;
+  animation-name: fadeOutUp;
+  animation-duration: 2s;
+}
+
+.addScoreActive2{
+  color: rgb(68, 0, 255);
+  position: absolute;
+  opacity: 0;
+  animation-name: fadeOutUp2;
+  animation-duration: 2s;
+}

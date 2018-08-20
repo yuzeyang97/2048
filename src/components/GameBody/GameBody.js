@@ -35,26 +35,21 @@ export default class GameBody extends Component {
     const { Actions } = this.props;
     if (mx - e.changedTouches[0].pageX > 30) {
       Actions.leftHandle();
-      console.log('左移动 30 个像素以上');
       mx = 0;
       my = 0;
     } else if (mx - e.changedTouches[0].pageX < -30) {
       Actions.rightHandle();
-      console.log('右移动 30 个像素以上');
       mx = 0;
       my = 0;
     } else if (my - e.changedTouches[0].pageY > 30) {
       Actions.topHandle();
-      console.log('上移动 30 个像素以上');
       mx = 0;
       my = 0;
     } else if (my - e.changedTouches[0].pageY < -30) {
       Actions.bottomHandle();
-      console.log('下移动 30 个像素以上');
       mx = 0;
       my = 0;
     } else {
-      console.log('没动');
       mx = 0;
       my = 0;
     }

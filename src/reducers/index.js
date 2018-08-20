@@ -7,18 +7,22 @@ const initState = {
   bestScore: 0,
   title: '2048',
   description: "Keypressing 'W S A D' on PC. Touch moving on Phone.",
-  newBtn:[]
+  newBtn:[],
+  addScore:0
 };
 
-function randomAddBtn(btnList) {
+function randomAddBtn(btnList,newBtn) {
   const randomrow = Math.floor(Math.random() * 4);
   const randomcol = Math.floor(Math.random() * 4);
   if (btnList[randomrow][randomcol] == 0) {
     const randomArr = [2, 4]
     btnList[randomrow][randomcol] = randomArr[Math.round(Math.random())];
-    return [randomrow,randomcol]
+    newBtn[0]=randomrow;
+    newBtn[1]=randomcol;
+    console.log(randomrow,randomcol)
+    return;
   } else {
-    randomAddBtn(btnList);
+    randomAddBtn(btnList,newBtn);
   }
 }
 
@@ -59,12 +63,14 @@ export default function (state = initState, action) {
       const randomArr = [2, 4];
       btns[row1][col1] = randomArr[Math.round(Math.random())];;
       btns[row2][col2] = randomArr[Math.round(Math.random())];;
-      newState = { ...newState, btns, score: 0 };
+      newState = { ...newState, btns, score: 0,addScore:0 };
       return newState;
     }
     // 下操作
     case `${ActionTypes.BOTTOM_HANDLE}`: {
       let { btns, score, bestScore } = { ...state };
+      let addScore = score;
+      console.log(addScore,222222222)
       let newbtns = [[...btns[0]], [...btns[1]], [...btns[2]], [...btns[3]]];
       for (let row = 2; row >= 0; row--) {
         for (let col = 0; col < 4; col++) {
@@ -81,7 +87,6 @@ export default function (state = initState, action) {
             newbtns[row][col] = 0;
           }
           if (currentbtn != nextbtn) {
-            console.log(s);
             if (nextbtn != 0) {
               const k = newbtns[row][col];
               newbtns[row][col] = 0;
@@ -93,14 +98,17 @@ export default function (state = initState, action) {
           }
         }
       }
-      let newBtn
-      if (checkStatus(newbtns) && JSON.stringify(newbtns) != JSON.stringify(btns)) { newBtn=randomAddBtn(newbtns) }
+      let newBtn=[];
+      if (checkStatus(newbtns) && JSON.stringify(newbtns) != JSON.stringify(btns)) { randomAddBtn(newbtns,newBtn) }
       bestScore > score ? '' : bestScore = score;
-      let newState = { ...state, btns: newbtns, score, bestScore,newBtn };
+      addScore=score-addScore;
+      let newState = { ...state, btns: newbtns, score, bestScore,newBtn,addScore};
       return newState;
     }
+    // 上操作
     case `${ActionTypes.TOP_HANDLE}`: {
       let { btns, score, bestScore } = { ...state };
+      let addScore = score;
       let newbtns = [[...btns[0]], [...btns[1]], [...btns[2]], [...btns[3]]];
       for (let row = 1; row < 4; row++) {
         for (let col = 0; col < 4; col++) {
@@ -117,7 +125,6 @@ export default function (state = initState, action) {
             newbtns[row][col] = 0;
           }
           if (currentbtn != nextbtn) {
-            console.log(s);
             if (nextbtn != 0) {
               const k = newbtns[row][col];
               newbtns[row][col] = 0;
@@ -129,14 +136,17 @@ export default function (state = initState, action) {
           }
         }
       }
-      let newBtn;
-      if (checkStatus(newbtns) && JSON.stringify(newbtns) != JSON.stringify(btns)) { newBtn=randomAddBtn(newbtns) }
+      let newBtn=[];
+      if (checkStatus(newbtns) && JSON.stringify(newbtns) != JSON.stringify(btns)) {randomAddBtn(newbtns,newBtn) }
       bestScore > score ? '' : bestScore = score;
-      let newState = { ...state, btns: newbtns, score, bestScore,newBtn };
+      addScore=score-addScore;
+      let newState = { ...state, btns: newbtns, score, bestScore,newBtn,addScore };
       return newState;
     }
+    // 左操作
     case `${ActionTypes.LEFT_HANDLE}`: {
       let { btns, score, bestScore } = { ...state };
+      let addScore = score;
       let newbtns = [[...btns[0]], [...btns[1]], [...btns[2]], [...btns[3]]];
       for (let col = 1; col < 4; col++) {
         for (let row = 0; row < 4; row++) {
@@ -150,10 +160,10 @@ export default function (state = initState, action) {
           if (currentbtn == nextbtn) {
             newbtns[row][s] *= 2;
             score += newbtns[row][s];
+            console.log(addScore);
             newbtns[row][col] = 0;
           }
           if (currentbtn != nextbtn) {
-            console.log(s);
             if (nextbtn != 0) {
               const k = newbtns[row][col];
               newbtns[row][col] = 0;
@@ -165,14 +175,17 @@ export default function (state = initState, action) {
           }
         }
       }
-      let newBtn;
-      if (checkStatus(newbtns) && JSON.stringify(newbtns) != JSON.stringify(btns)) { newBtn=randomAddBtn(newbtns) }
+      let newBtn=[];
+      if (checkStatus(newbtns) && JSON.stringify(newbtns) != JSON.stringify(btns)) {randomAddBtn(newbtns,newBtn);console.log(newBtn) }
       bestScore > score ? '' : bestScore = score;
-      let newState = { ...state, btns: newbtns, score, bestScore,newBtn };
+      addScore=score-addScore;
+      let newState = { ...state, btns: newbtns, score, bestScore,newBtn,addScore };
       return newState;
     }
+    // 右操作
     case `${ActionTypes.RIGHT_HANDLE}`: {
       let { btns, score, bestScore } = { ...state };
+      let addScore = score;
       let newbtns = [[...btns[0]], [...btns[1]], [...btns[2]], [...btns[3]]];
       for (let col = 2; col >= 0; col--) {
         for (let row = 0; row < 4; row++) {
@@ -189,7 +202,6 @@ export default function (state = initState, action) {
             newbtns[row][col] = 0;
           }
           if (currentbtn != nextbtn) {
-            console.log(s);
             if (nextbtn != 0) {
               const k = newbtns[row][col];
               newbtns[row][col] = 0;
@@ -201,10 +213,11 @@ export default function (state = initState, action) {
           }
         }
       }
-      let newBtn;
-      if (checkStatus(newbtns) && JSON.stringify(newbtns) != JSON.stringify(btns)) { newBtn=randomAddBtn(newbtns) }
+      let newBtn=[];
+      if (checkStatus(newbtns) && JSON.stringify(newbtns) != JSON.stringify(btns)) {randomAddBtn(newbtns,newBtn) }
       bestScore > score ? '' : bestScore = score;
-      let newState = { ...state, btns: newbtns, score, bestScore,newBtn };
+      addScore=score-addScore;
+      let newState = { ...state, btns: newbtns, score, bestScore,newBtn,addScore };
       return newState;
     }
     default:

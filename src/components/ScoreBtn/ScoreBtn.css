@@ -9,7 +9,9 @@
     flex-direction: column;
     align-items: center;
     margin-right: 10px;
+    position: relative;
 }
 .scorebtn-title{
     color: rgb(234,225,210);
 }
+

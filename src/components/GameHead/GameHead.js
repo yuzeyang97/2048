@@ -5,11 +5,11 @@ import './GameHead.css';
 
 const GameHead = props => {
   const {
-    score, bestScore, title, description, Actions
+    score, bestScore, title, description, Actions, addScore
   } = props;
   return (
     <div className="gamehead">
-      <GameScore title={title} score={score} bestScore={bestScore} />
+      <GameScore title={title} score={score} bestScore={bestScore} addScore={addScore} />
       <GameExtraView description={description} Actions={Actions} />
     </div>
   );

@@ -9,7 +9,6 @@ export default class GameBtn extends Component {
     };
   }
   componentWillReceiveProps(nextProps) {
-    console.log(this.props);
     if (
       (nextProps.val % this.props.val == 0 && nextProps.val != 0 && nextProps.val != this.props.val) ||
       (nextProps.newBtn ? (nextProps.row == nextProps.newBtn[0] && nextProps.col == nextProps.newBtn[1]) : false)
@@ -20,7 +19,6 @@ export default class GameBtn extends Component {
     }
   }
   render() {
-    console.log(this.state);
     const { val } = this.props;
     return (
       <div className={this.state.className}> {val} </div>
