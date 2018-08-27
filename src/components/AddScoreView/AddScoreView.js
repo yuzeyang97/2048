@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './AddScoreView.css';
 
 export default class AddScoreView extends Component {
+  static defaultProps = {
+    addScore: 0
+  };
+  static propTypes = {
+    addScore: PropTypes.number
+  }
   constructor() {
     super();
     this.state = {

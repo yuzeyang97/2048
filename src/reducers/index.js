@@ -1,6 +1,7 @@
 /* eslint-disable */
 import ActionTypes from '../const/ActionTypes';
 
+// 定义初始state
 const initState = {
   btns: [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]],
   score: 0,
